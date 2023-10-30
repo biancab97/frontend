@@ -58,7 +58,7 @@
                     required
                   />
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" id="login-button" class="btn btn-primary">Login</button>
               </form>
 
               <!-- Success Alert (Initially Hidden) -->
@@ -127,6 +127,14 @@
               placeholder="Email"
               required
             />
+            <!-- Notification Alert (Initially Hidden) -->
+            <div
+              id="notification-message"
+              class="alert alert-info mt-3"
+              style="display: none"
+            >
+              An email with a recovery link was sent to your email address.
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -148,15 +156,6 @@
       </div>
     </div>
 
-    <!-- Notification Alert (Initially Hidden) -->
-    <div
-      id="notification-message"
-      class="alert alert-info mt-3"
-      style="display: none"
-    >
-      An email with a recovery link was sent to your email address.
-    </div>
 
-    <!-- TODO: Sign up: redirect to signUp -->
   </body>
 </html>

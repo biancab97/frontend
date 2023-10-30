@@ -27,7 +27,6 @@
       </div>
 
     <!-- !!! START PAGE !!! -->
-    <!-- TODO: IF NOT ingelogd, open login.html -->
     <!-- TODO: IF ingelogd = opdrachtgever, open trainee.html -->
     <!-- TODO: IF ingelogd = trainee, open dashboard.html -->
     <!-- TODO: IF ingelogd = talent manager, open homeTalent.html -->
@@ -42,19 +41,16 @@
     <!-- 4. Uitloggen -->
 
     <script>
-      // TODO: Simulate user login status (you can replace this with actual logic)
+      // TODO: Simulate user login status (replace this with actual logic)
       const isLoggedIn = false; // Change this to false to simulate logged-out state
-
-      // Get the element where you want to load content
-      const contentElement = document.getElementById("content");
 
       // Check the login status and load the appropriate content
       if (isLoggedIn) {
-        // If the user is logged in, load the dashboard.html content
-        contentElement.innerHTML = "<iframe src='../html/dashboard.html' style='width: 100%; height: 500px;'></iframe>";
+        // If the user is logged in, load the dashboard.html
+        window.location.href = '../html/dashboard.html';
       } else {
-        // If the user is not logged in, load the login.html content
-        contentElement.innerHTML = "<iframe src='../html/login.html' style='width: 100%; height: 500px;'></iframe>";
+        // If the user is not logged in, load the login.html
+        window.location.href = '../html/login.html';
       }
     </script>
   </body>
