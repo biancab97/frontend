@@ -50,4 +50,3 @@ function dummyOpdracht() {
     }
     return opdracht;
 }
-
