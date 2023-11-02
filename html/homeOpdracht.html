@@ -14,17 +14,17 @@
 
   <div class="container">
     <div class="row">
-      <!-- <div class="col-4 text-start">
+      <div class="col-4 text-start">
         <div class="btn-group">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <button id="vacature-button" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Vacature
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Vacature 1</a></li>
-            <li><a class="dropdown-item" href="#">Vacature 2</a></li>
+            <li><a class="dropdown-item" data-vacature="Vacature 1" href="#">Vacature 1</a></li>
+            <li><a class="dropdown-item" data-vacature="Vacature 2" href="#">Vacature 2</a></li>
           </ul>
         </div>
-      </div> -->
+      </div>
       <div class="col-12">
         <h1 class="display-4 text-center">Trainees</h1>
       </div>
@@ -103,11 +103,26 @@
       makeCards();
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+      const vacatureButton = document.getElementById("vacature-button");
+      const dropdownItems = document.querySelectorAll('.dropdown-item');
+    
+      dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const selectedVacature = item.getAttribute('data-vacature');
+          vacatureButton.innerText = selectedVacature;
+        });
+      });
+    });
+
+
     function handleMatch(id) {
       let matchButton = document.getElementById(`match-${id}`)
       matchButton.classList = 'btn btn btn-primary'
       let noMatchButton = document.getElementById(`no-match-${id}`)
       noMatchButton.classList = 'btn btn btn-secondary'
+      // Code om opdracht aan te maken en bericht aan talentmanager
+      console.log(document.getElementById("vacature-button").innerText)
     }
 
     function handleNoMatch(id) {
