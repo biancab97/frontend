@@ -1,10 +1,8 @@
-async function getVacatureById() {
-    var vacatureId = document.getElementById("vacatureId").value;
+async function getVacatureById(id) {
     try {
-        let response = await fetch(`http://localhost:8080/api/vacature/${vacatureId}`)
+        let response = await fetch(`http://localhost:8080/api/vacature/${id}`);
         let vacature = await response.json();
-        displayVacatureInfo(vacature)
-
+        displayVacatureInfo(vacature);
     } catch (error) {
         displayVacatureNotFound();
         console.error("Error fetching data:", error);
@@ -12,7 +10,6 @@ async function getVacatureById() {
 }
 
 async function postVacature(vacature) {
-
     try {
         await fetch(`http://localhost:8080/api/vacature`, {
             method: "POST",
@@ -30,16 +27,31 @@ async function postVacature(vacature) {
 function displayVacatureInfo(vacature) {
     var vacatureInfoDiv = document.getElementById("vacatureInfo");
     vacatureInfoDiv.innerHTML = `
-        <h3>${vacature.titel}</h3>
-        <p><strong>Standplaats:</strong> ${vacature.standplaats}</p>
-        <p><strong>Omschrijving:</strong> ${vacature.omschrijving}</p>
-        <p><strong>Vereisten:</strong> ${vacature.vereisten}</p>
-        <p><strong>Uren:</strong> ${vacature.uren}</p>
-        <p><strong>Duur:</strong> ${vacature.duur}</p>
-        <p><strong>Publicatie Datum:</strong> ${vacature.publicatieDatum}</p>
-        <p><strong>Start Datum:</strong> ${vacature.startDatum}</p>
-        <p><strong>Eind Datum:</strong> ${vacature.eindDatum}</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">${vacature.titel}</h3>
+                            <p class="card-text"><strong>Standplaats:</strong> ${vacature.standplaats}</p>
+                            <p class="card-text"><strong>Omschrijving:</strong> ${vacature.omschrijving}</p>
+                            <p class="card-text"><strong>Vereisten:</strong> ${vacature.vereisten}</p>
+                            <p class="card-text"><strong>Uren:</strong> ${vacature.uren}</p>
+                            <p class="card-text"><strong>Duur:</strong> ${vacature.duur}</p>
+                            <p class="card-text"><strong>Publicatie Datum:</strong> ${vacature.publicatieDatum}</p>
+                            <p class="card-text"><strong>Start Datum:</strong> ${vacature.startDatum}</p>
+                            <p class="card-text"><strong>Eind Datum:</strong> ${vacature.eindDatum}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     `;
+
+    // Add Bootstrap classes for aesthetics
+    vacatureInfoDiv.querySelector('.card').classList.add('bg-light', 'text-dark');
+    vacatureInfoDiv.querySelector('h3').classList.add('text-primary');
+    vacatureInfoDiv.querySelector('.card-title').classList.add('mb-4');
 }
 
 function displayVacatureNotFound() {
