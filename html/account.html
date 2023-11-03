@@ -16,7 +16,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../js/accountcrud.js"></script>
+    <script src="../js/traineecrud.js"></script>
+    <script src="../js/traineeAccount.js"></script>
   </head>
 
   <body class="bg-light">
@@ -48,7 +49,7 @@
             <a class="nav-link text-white" href="account.html">Mijn Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="profiel.html">Profiel</a>
+            <a class="" "nav-link text-white" href="profiel.html">Profiel</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="berichten.html">Berichten</a>
@@ -78,120 +79,88 @@
     <div class="container my-5">
       <div class="section">
         <h2 class="fw-bold mb-4">Persoonsgegevens</h2>
-        <!-- Naam -->
-        <div class="row mb-3">
-          <div class="col-6">
-            <h3 class="fw-bold">Naam</h3>
-            <p id="NameText" class="text-secondary">John Doe</p>
-            <input id="NameInput" type="text" class="form-control d-none" />
-            <button
-              id="editName"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Name')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveName"
-              class="btn btn-success d-none"
-              onclick="saveField('Name')"
-            >
-              Save
-            </button>
-          </div>
-          <!-- Email -->
-          <div class="col-6">
-            <h3 class="fw-bold">Email</h3>
-            <p id="EmailText" class="text-secondary">john@example.com</p>
-            <input id="EmailInput" type="email" class="form-control d-none" />
-            <button
-              id="editEmail"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Email')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveEmail"
-              class="btn btn-success d-none"
-              onclick="saveField('Email')"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-        <!-- Wachtwoord -->
-        <div class="row mb-3">
-          <div class="col-6">
-            <h3 class="fw-bold">Wachtwoord</h3>
-            <p id="PasswordText" class="text-secondary">************</p>
-            <input
-              id="PasswordInput"
-              type="password"
-              class="form-control d-none"
-            />
-            <button
-              id="editPassword"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Password')"
-            >
-              Edit
-            </button>
-            <button
-              id="savePassword"
-              class="btn btn-success d-none"
-              onclick="saveField('Password')"
-            >
-              Save
-            </button>
-          </div>
-          <!-- Adres -->
-          <div class="col-6">
-            <h3 class="fw-bold">Adres</h3>
-            <p id="AdresText" class="text-secondary">123 Main St</p>
-            <input id="AdresInput" type="text" class="form-control d-none" />
-            <button
-              id="editAdres"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Adres')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveAdres"
-              class="btn btn-success d-none"
-              onclick="saveField('Adres')"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-        <!-- Telefoonnummer -->
-        <div class="row">
-          <div class="col-6">
-            <h3 class="fw-bold">Telefoonnummer</h3>
-            <p id="TelefoonnummerText" class="text-secondary">
-              +31 6 12 34 56 78
-            </p>
-            <input
-              id="TelefoonnummerInput"
-              type="text"
-              class="form-control d-none"
-            />
-            <button
-              id="editTelefoonnummer"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Telefoonnummer')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveTelefoonnummer"
-              class="btn btn-success d-none"
-              onclick="saveField('Telefoonnummer')"
-            >
-              Save
-            </button>
+        <div class="card">
+          <div class="card-body">
+            <!-- Naam -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">Naam</h3>
+              <p id="NameText" class="text-secondary"></p>
+              <input id="NameInput" type="text" class="form-control d-none" />
+              <button
+                id="editName"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveName"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- Telefoonnummer -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">Telefoonnummer</h3>
+              <p id="TelefoonnummerText" class="text-secondary"></p>
+              <input
+                id="TelefoonnummerInput"
+                type="text"
+                class="form-control d-none"
+              />
+              <button
+                id="editTelefoonnummer"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveTelefoonnummer"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- Email -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">Email</h3>
+              <p id="EmailText" class="text-secondary"></p>
+              <input id="EmailInput" type="email" class="form-control d-none" />
+              <button
+                id="editEmail"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveEmail"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- Wachtwoord -->
+            <div class="form-group">
+              <h3 class="fw-bold">Wachtwoord</h3>
+              <p id="PasswordText" class="text-secondary">************</p>
+              <input
+                id="PasswordInput"
+                type="password"
+                class="form-control d-none"
+              />
+              <button
+                id="editPassword"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="savePassword"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -201,121 +170,113 @@
     <div class="container">
       <div class="section">
         <h2 class="fw-bold mb-4">Profiel</h2>
-        <!-- Uitstroomrichting -->
-        <div class="row mb-3">
-          <div class="col-6">
-            <h3 class="fw-bold">Uitstroomrichting</h3>
-            <p id="UitstroomrichtingText" class="text-secondary">IT</p>
-            <input
-              id="UitstroomrichtingInput"
-              type="text"
-              class="form-control d-none"
-            />
-            <button
-              id="editUitstroomrichting"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Uitstroomrichting')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveUitstroomrichting"
-              class="btn btn-success d-none"
-              onclick="saveField('Uitstroomrichting')"
-            >
-              Save
-            </button>
-          </div>
-          <!-- Profielfoto -->
-          <div class="col-6">
-            <h3 class="fw-bold">Profielfoto</h3>
-            <img src="profile.jpg" alt="Profielfoto" width="100" height="100" />
-            <button
-              id="editProfielfoto"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Profielfoto')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveProfielfoto"
-              class="btn btn-success d-none"
-              onclick="saveField('Profielfoto')"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-        <!-- Woonplaats -->
-        <div class="row mb-3">
-          <div class="col-6">
-            <h3 class="fw-bold">Woonplaats</h3>
-            <p id="WoonplaatsText" class="text-secondary">Amsterdam</p>
-            <input
-              id="WoonplaatsInput"
-              type="text"
-              class="form-control d-none"
-            />
-            <button
-              id="editWoonplaats"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Woonplaats')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveWoonplaats"
-              class="btn btn-success d-none"
-              onclick="saveField('Woonplaats')"
-            >
-              Save
-            </button>
-          </div>
-          <!-- CV -->
-          <div class="col-6">
-            <h3 class="fw-bold">CV</h3>
-            <p id="CVText" class="text-secondary">
-              <a href="cv.pdf">Download</a>
-            </p>
-            <input id="CVInput" type="file" class="form-control d-none" />
-            <button
-              id="editCV"
-              class="btn btn-primary"
-              onclick="toggleEditSave('CV')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveCV"
-              class="btn btn-success d-none"
-              onclick="saveField('CV')"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-        <!-- Bio -->
-        <div class="row">
-          <div class="col-12">
-            <h3 class="fw-bold">Bio</h3>
-            <p id="BioText" class="text-secondary">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <textarea id="BioInput" class="form-control d-none"></textarea>
-            <button
-              id="editBio"
-              class="btn btn-primary"
-              onclick="toggleEditSave('Bio')"
-            >
-              Edit
-            </button>
-            <button
-              id="saveBio"
-              class="btn btn-success d-none"
-              onclick="saveField('Bio')"
-            >
-              Save
-            </button>
+        <div class="card">
+          <div class="card-body">
+            <!-- Uitstroomrichting -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">Uitstroomrichting</h3>
+              <p id="UitstroomrichtingText" class="text-secondary"></p>
+              <input
+                id="UitstroomrichtingInput"
+                type="text"
+                class="form-control d-none"
+              />
+              <button
+                id="editUitstroomrichting"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveUitstroomrichting"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- Profielfoto -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">Profielfoto</h3>
+              <img
+                id="Profielfoto"
+                alt="Profielfoto"
+                width="100"
+                height="100"
+              />
+              <button
+                id="editProfielfoto"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveProfielfoto"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- CV -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">CV</h3>
+              <p id="CVText" class="text-secondary">
+                <a href="cv.pdf">Download</a>
+              </p>
+              <input id="CVInput" type="file" class="form-control d-none" />
+              <button
+                id="editCV"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveCV"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- Motivatie -->
+            <div class="form-group mb-3">
+              <h3 class="fw-bold">Motivatie</h3>
+              <p id="MotivatieText" class="text-secondary"></p>
+              <textarea
+                id="MotivatieInput"
+                class="form-control d-none"
+              ></textarea>
+              <button
+                id="editMotivatie"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveMotivatie"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
+            <!-- Bio -->
+            <div class="form-group">
+              <h3 class="fw-bold">Bio</h3>
+              <p id="BioText" class="text-secondary">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <textarea id="BioInput" class="form-control d-none"></textarea>
+              <button
+                id="editBio"
+                class="btn btn-primary"
+              >
+                Edit
+              </button>
+              <button
+                id="saveBio"
+                class="btn btn-success d-none"
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       </div>

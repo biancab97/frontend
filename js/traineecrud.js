@@ -2,17 +2,34 @@ async function getTraineeById(traineeId) {
     try {
         let response = await fetch(`http://localhost:8080/api/trainee/${traineeId}`)
         let trainee = await response.json();
-        console.log(traineeId)
-        displayTraineeInfo(trainee)
-
+        return trainee;
     } catch (error) {
-        displayTraineeNotFound();
         console.error("Error fetching data:", error);
     }
 }
 
-async function postTrainee(trainee) {
+async function updateTrainee(traineeId, updatedData) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/trainee/${traineeId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+        });
 
+        if (response.ok) {
+        const updatedTrainee = await response.json();        
+        } else {
+        // Handle errors or display a message if needed
+        console.error('Error updating trainee data:', response.status);
+        }
+    } catch (error) {
+        console.error('Error updating trainee data:', error);
+    }
+}  
+
+async function postTrainee(trainee) {
     try {
         await fetch(`http://localhost:8080/api/trainee`, {
             method: "POST",
@@ -21,7 +38,6 @@ async function postTrainee(trainee) {
               },
             body: JSON.stringify(trainee)
         });
-
     } catch (error) {
         console.error("Error fetching data:", error);
     }
