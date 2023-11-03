@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         // Redirect to the dashboard.html page after a delay
         setTimeout(function () {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'login.html';
         }, 2000); // Delay for 2 seconds
     });
 });
