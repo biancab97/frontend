@@ -1,8 +1,8 @@
-async function getTraineeById() {
-    var traineeId = document.getElementById("traineeId").value;
+async function getTraineeById(traineeId) {
     try {
         let response = await fetch(`http://localhost:8080/api/trainee/${traineeId}`)
         let trainee = await response.json();
+        console.log(traineeId)
         displayTraineeInfo(trainee)
 
     } catch (error) {
@@ -30,16 +30,20 @@ async function postTrainee(trainee) {
 function displayTraineeInfo(trainee) {
     var traineeInfoDiv = document.getElementById("traineeInfo");
     traineeInfoDiv.innerHTML = `
-        <h3>${trainee.naam}</h3>
-        <p><strong>Wachtwoord:</strong> ${trainee.wachtwoord}</p>
-        <p><strong>E-mail:</strong> ${trainee.email}</p>
-        <p><strong>Foto:</strong> ${trainee.foto}</p>
-        <p><strong>Telefoon:</strong> ${trainee.telefoon}</p>
-        <p><strong>Richting:</strong> ${trainee.richting}</p>
-        <p><strong>CV:</strong> ${trainee.cv}</p>
-        <p><strong>Motivatie:</strong> ${trainee.motivatie}</p>
-        <p><strong>Bio:</strong> ${trainee.bio}</p>
-    `;
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-primary">${trainee.naam}</h3>
+            <p class="card-text"><strong>E-mail:</strong> ${trainee.email}</p>
+            <p class="card-text"><strong>Telefoon:</strong> ${trainee.telefoon}</p>
+            <p class="card-text"><strong>Richting:</strong> ${trainee.richting}</p>
+            <p class="card-text"><strong>Motivatie:</strong> ${trainee.motivatie}</p>
+            <p class="card-text"><strong>Bio:</strong> ${trainee.bio}</p>
+        </div>
+        <div class="col-md-6">
+            <img src="../img/${trainee.foto}" class="img-fluid">
+        </div>
+    </div>
+        `;
 }
 
 function displayTraineeNotFound() {
