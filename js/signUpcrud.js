@@ -2,7 +2,7 @@
 $(document).ready(function () {
     $('#signupForm').submit(function (e) {
         e.preventDefault(); // Prevent the default form submission
-        
+
         // Check the selected value from the dropdown
         var selectedValue = $('#persoonDropdown').text();
 
@@ -30,5 +30,13 @@ $(document).ready(function () {
         } else if (selectedValue === 'Opdrachtgever') {
             postOpdrachtgever(personData);
         }
+
+        // Show the Bootstrap alert on succesful sign up
+        $('.alert').fadeIn();
+
+        // Redirect to the dashboard.html page after a delay
+        setTimeout(function () {
+            window.location.href = 'dashboard.html';
+        }, 2000); // Delay for 2 seconds
     });
 });
