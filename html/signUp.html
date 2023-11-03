@@ -16,6 +16,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/traineecrud.js"></script>
+    <script src="../js/talentmanagercrud.js"></script>
+    <script src="../js/opdrachtgevercrud.js"></script>
+    <script src="../js/signUpcrud.js"></script>
   </head>
 
   <body>
@@ -46,7 +50,7 @@
                   >
                 </div>
                 <!-- Form -->
-                <form>
+                <form id="signupForm" method="post">
                   <!-- Email -->
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -152,6 +156,7 @@
         </div>
       </section>
     </main>
+    
     <!-- JavaScript -->
     <script>
       // Save Persoon (talent manager, trainee, opdrachtgever)
@@ -162,6 +167,7 @@
           $("#persoonDropdown").text(selectedValue);
         });
       });
+      
       // Prevent page from scrolling to top
       $(document).ready(function () {
         // Handle dropdown item click
