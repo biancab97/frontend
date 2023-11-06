@@ -15,17 +15,14 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/traineecrud.js"></script>
+    <script src="../js/talentmanagercrud.js"></script>
+    <script src="../js/opdrachtgevercrud.js"></script>
+    <script src="../js/signUpcrud.js"></script>
   </head>
 
   <body>
-    <!-- TODO: verschillende velden per Persoon (opdrachtgever, trainee, talent manager) -->
-
-    <!-- TODO: Opdrachtgever: input Wat is mijn bedrijf? -->
-
-    <!-- TODO: Talent Manager: input in welke sector (???) -->
-
-    <!-- TODO: Trainee: input uitstroomrichting -->
-
     <!-- Page content -->
     <main>
       <section class="container d-flex flex-column">
@@ -53,7 +50,12 @@
                   >
                 </div>
                 <!-- Form -->
-                <form>
+                <form id="signupForm" method="post">
+                  <!-- Alert on successful sign up -->
+                  <div class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                    Sign up successful!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
                   <!-- Email -->
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -68,7 +70,7 @@
                   </div>
                   <!-- Password -->
                   <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for "password" class="form-label">Password</label>
                     <input
                       type="password"
                       id="password"
@@ -79,53 +81,68 @@
                       autocomplete="off"
                     />
                   </div>
-                  <!-- Voornaam -->
+                  <!-- Voornaam (First Name) -->
                   <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="voornaam" class="form-label">Voornaam</label>
                     <input
-                      type="email"
-                      id="email"
+                      type="text"
+                      id="voornaam"
                       class="form-control"
-                      name="email"
-                      placeholder="Email address here"
+                      name="voornaam"
+                      placeholder="Your First Name"
                       required=""
                     />
                   </div>
-                  <!-- Achternaam -->
+                  <!-- Achternaam (Last Name) -->
                   <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="achternaam" class="form-label"
+                      >Achternaam</label
+                    >
                     <input
-                      type="email"
-                      id="email"
+                      type="text"
+                      id="achternaam"
                       class="form-control"
-                      name="email"
-                      placeholder="Email address here"
+                      name="achternaam"
+                      placeholder="Your Last Name"
                       required=""
                     />
                   </div>
-                  <!-- Telefoonnummer -->
+                  <!-- Telefoonnummer (Phone Number) -->
                   <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for "telefoonnummer" class="form-label"
+                      >Telefoonnummer</label
+                    >
                     <input
-                      type="email"
-                      id="email"
+                      type="tel"
+                      id="telefoonnummer"
                       class="form-control"
-                      name="email"
-                      placeholder="Email address here"
+                      name="telefoonnummer"
+                      placeholder="Your Phone Number"
                       required=""
                     />
                   </div>
-                  <!-- Persoon -->
+                  <!-- Persoon (Person Dropdown) -->
                   <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      class="form-control"
-                      name="email"
-                      placeholder="Email address here"
-                      required=""
-                    />
+                    <label for="persoon" class="form-label">Persoon</label>
+                    <div class="dropdown">
+                      <button
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        id="persoonDropdown"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Select Persoon
+                      </button>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="persoonDropdown"
+                      >
+                        <li><a class="dropdown-item" href="#" data-value="Trainee">Trainee</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="Talent Manager">Talent Manager</a></li>
+                        <li><a class="dropdown-item" href="#" data-value="Opdrachtgever">Opdrachtgever</a></li>
+                      </ul>
+                    </div>
                   </div>
                   <div>
                     <!-- Button -->
@@ -144,5 +161,27 @@
         </div>
       </section>
     </main>
+    
+    <!-- JavaScript -->
+    <script>
+      // Save Persoon (talent manager, trainee, opdrachtgever)
+      $(document).ready(function () {
+        // Handle dropdown item click
+        $(".dropdown-item").click(function () {
+          var selectedValue = $(this).data("value");
+          $("#persoonDropdown").text(selectedValue);
+        });
+      });
+      
+      // Prevent page from scrolling to top
+      $(document).ready(function () {
+        // Handle dropdown item click
+        $(".dropdown-item").click(function (e) {
+          e.preventDefault(); // Prevent the default behavior
+          var selectedValue = $(this).data("value");
+          $("#persoonDropdown").text(selectedValue);
+        });
+      });
+    </script>
   </body>
 </html>
