@@ -83,7 +83,7 @@
 			}
 
 			function deleteVacatureById(id) {
-				deleteVacature(id)
+				deleteVacature(id).then((res) => loadVacatures())
 			}
 
 			function loadVacatures() {
