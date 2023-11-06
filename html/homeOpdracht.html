@@ -59,10 +59,31 @@
 				</div>
 			</div>
 		</div>
+		<div
+			class="modal fade"
+			id="deletedModal"
+			tabindex="-1"
+			aria-labelledby="deletedModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header d-flex justify-content-center">
+						<div class="alert alert-danger" role="alert">
+							Deleted Successfully!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script>
 			function gotoVacature(id) {
 				getVacatureById(id)
+			}
+
+			function deleteVacatureById(id) {
+				deleteVacature(id)
 			}
 
 			function loadVacatures() {
@@ -97,7 +118,7 @@
                                         <button class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
                                             Bekijken
                                         </button>
-                                        <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
+                                        <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deletedModal" onclick="deleteVacatureById(${vacature.id})">
                                             Verwijderen
                                         </button>
                                     </div>
