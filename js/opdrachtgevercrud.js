@@ -2,7 +2,7 @@ async function getOpdrachtgeverById() {
 	var opdrachtgeverId = document.getElementById('opdrachtgeverId').value
 	try {
 		let response = await fetch(
-			`20.126.244.168:8080/api/opdrachtgever/${opdrachtgeverId}`,
+			`http://20.126.244.168:8080/api/opdrachtgever/${opdrachtgeverId}`,
 		)
 		let opdrachtgever = await response.json()
 		displayOpdrachtgeverInfo(opdrachtgever)
@@ -14,7 +14,7 @@ async function getOpdrachtgeverById() {
 
 async function postOpdrachtgever(opdrachtgever) {
 	try {
-		await fetch(`20.126.244.168:8080/api/opdrachtgever`, {
+		await fetch(`http://20.126.244.168:8080/api/opdrachtgever`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

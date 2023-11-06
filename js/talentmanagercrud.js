@@ -2,7 +2,7 @@ async function getTalentmanagerById() {
 	var talentmanagerId = document.getElementById('talentmanagerId').value
 	try {
 		let response = await fetch(
-			`20.126.244.168:8080/api/talentmanager/${talentmanagerId}`,
+			`http://20.126.244.168:8080/api/talentmanager/${talentmanagerId}`,
 		)
 		let talentmanager = await response.json()
 		displayTalentmanagerInfo(talentmanager)
@@ -14,7 +14,7 @@ async function getTalentmanagerById() {
 
 async function postTalentmanager(talentmanager) {
 	try {
-		await fetch(`20.126.244.168:8080/api/talentmanager`, {
+		await fetch(`http://20.126.244.168:8080/api/talentmanager`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

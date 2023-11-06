@@ -1,6 +1,6 @@
 async function getVacatureById(id) {
 	try {
-		let response = await fetch(`20.126.244.168:8080/api/vacature/${id}`)
+		let response = await fetch(`http://20.126.244.168:8080/api/vacature/${id}`)
 		let vacature = await response.json()
 		displayVacatureInfo(vacature)
 	} catch (error) {
@@ -11,7 +11,7 @@ async function getVacatureById(id) {
 
 async function postVacature(vacature) {
 	try {
-		await fetch(`20.126.244.168:8080/api/vacature`, {
+		await fetch(`http://20.126.244.168:8080/api/vacature`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

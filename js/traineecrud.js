@@ -1,6 +1,8 @@
 async function getTraineeById(traineeId) {
 	try {
-		let response = await fetch(`20.126.244.168:8080/api/trainee/${traineeId}`)
+		let response = await fetch(
+			`http://20.126.244.168:8080/api/trainee/${traineeId}`,
+		)
 		let trainee = await response.json()
 		console.log(traineeId)
 		displayTraineeInfo(trainee)
@@ -12,7 +14,7 @@ async function getTraineeById(traineeId) {
 
 async function postTrainee(trainee) {
 	try {
-		await fetch(`20.126.244.168:8080/api/trainee`, {
+		await fetch(`http://20.126.244.168:8080/api/trainee`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
