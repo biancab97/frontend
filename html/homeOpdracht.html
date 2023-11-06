@@ -10,42 +10,36 @@
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 			crossorigin="anonymous"
 		/>
+		<script src="../js/vacaturecrud.js"></script>
 	</head>
 
 	<body>
-		Dit is het overzicht van trainees die een opdrachtgever kan liken!
+		Dit is het overzicht van vacatures die een opdrachtgever heeft!
 
-		<div class="container">
+		<!-- Overzicht vacatures -->
+		<div class="container my-5">
 			<div class="row">
-				<!-- <div class="col-4 text-start">
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Vacature
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Vacature 1</a></li>
-            <li><a class="dropdown-item" href="#">Vacature 2</a></li>
-          </ul>
-        </div>
-      </div> -->
 				<div class="col-12">
-					<h1 class="display-4 text-center">Trainees</h1>
+					<h1 class="display-4 text-center">Jouw Vacatures</h1>
 				</div>
 			</div>
-			<div class="row" id="traineeCards"></div>
+			<div class="row" id="vacatures-row"></div>
 		</div>
 
+		<!-- Per vacature knopje 'informatie' die leidt naar de vacature -->
 		<div
 			class="modal fade"
-			id="traineeModal"
+			id="vacatureModal"
 			tabindex="-1"
-			aria-labelledby="traineeModalLabel"
+			aria-labelledby="vacatureModalLabel"
 			aria-hidden="true"
 		>
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="traineeModalLabel">Trainee Details</h5>
+						<h5 class="modal-title" id="vacatureModalLabel">
+							Vacature Details
+						</h5>
 						<button
 							type="button"
 							class="btn-close"
@@ -53,81 +47,65 @@
 							aria-label="Close"
 						></button>
 					</div>
-					<div class="modal-body" id="traineeInfo">
-						<!-- Trainee details will be displayed here -->
+					<div class="modal-body" id="vacatureInfo">
+						<!-- Vacature details will be displayed here -->
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<script>
-			function makeCards() {
-				fetch('http://20.126.244.168:8080/api/trainee')
+			function gotoVacature(id) {
+				getVacatureById(id)
+			}
+
+			function loadVacatures() {
+				fetch('http://20.126.244.168:8080/api/vacature')
 					.then((res) => res.json())
 					.then((data) => {
 						let html = ''
 
-						data.forEach((trainee) => {
-							const korteBio =
-								trainee.bio === null
-									? 'leeg'
-									: trainee.bio.length > 100
-									? trainee.bio.substring(0, 100) + '...'
-									: trainee.bio
+						data.forEach((vacature) => {
+							// Show only the first 100 characters of the omschrijving on the main page
+							const summary =
+								vacature.omschrijving.length > 100
+									? vacature.omschrijving.substring(0, 100) + '...'
+									: vacature.omschrijving
 
 							html += `
-			         <div class="col-12 col-md-4 col-lg-3 px-4 mt-5">
-			           <div class="card">
-			             <img src="../img/${trainee.foto}" class="card-img-top" alt="...">
-			             <div class="card-body">
-			               <p class="text-primary text-medium card-title fs-5">${trainee.naam}</p>
-			               <p style="height: 30px;" class="text-wrap overflow-auto card-text text-break fs-6"><strong>Richting:</strong> ${trainee.richting}</p>
-			               <p class="card-text">
-			                 <strong>Bio: </strong>${korteBio}
-			               </p>
-			               <div class="row buttons-row">
-			                 <div class="col-4 text-start">
-			                   <button id='match-${trainee.id}' class="btn btn-secondary" onclick="handleMatch(${trainee.id})">
-			                     Match
-			                   </button>
-			                 </div>
-			                 <div class="col-4 text-start">
-			                   <button id='no-match-${trainee.id}' class="btn btn-primary" onclick="handleNoMatch(${trainee.id})">
-			                     Geen Match
-			                   </button>
-			                 </div>
-			                 <div class="col-4 text-end">
-			                   <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#traineeModal" onclick="getTraineeById(${trainee.id})"">
-			                     Meer Info
-			                   </button>
-			                 </div>
-			               </div>
-			             </div>
-			           </div>
-			         </div>
-			     `
+                        <div class="col-12 col-md-4 col-lg-3 mt-4">
+                            <div class="card">
+                                <img src="https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">${vacature.titel}</h5>
+                                    <p class="card-text">${summary}</p>
+                                    <div class="d-flex justify-content-evenly flex-wrap">
+                                        <button class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
+                                            Informatie
+                                        </button>
+                                        <button class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
+                                            Matchen
+                                        </button>
+                                        <button class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
+                                            Bekijken
+                                        </button>
+                                        <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
+                                            Verwijderen
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `
 						})
-						document.getElementById('traineeCards').innerHTML = html
+
+						document.getElementById('vacatures-row').innerHTML = html
 					})
 			}
 
 			document.addEventListener('DOMContentLoaded', function (event) {
-				makeCards()
+				loadVacatures()
 			})
-
-			function handleMatch(id) {
-				let matchButton = document.getElementById(`match-${id}`)
-				matchButton.classList = 'btn btn btn-primary'
-				let noMatchButton = document.getElementById(`no-match-${id}`)
-				noMatchButton.classList = 'btn btn btn-secondary'
-			}
-
-			function handleNoMatch(id) {
-				let matchButton = document.getElementById(`match-${id}`)
-				matchButton.classList = 'btn btn btn-secondary'
-				let noMatchButton = document.getElementById(`no-match-${id}`)
-				noMatchButton.classList = 'btn btn btn-primary'
-			}
 		</script>
 
 		<script
