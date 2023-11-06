@@ -43,6 +43,11 @@ async function postTrainee(trainee) {
     }
 }
 
+function getDisplayTrainee(traineeId) {
+    trainee = getTraineeById(traineeId)
+    displayTraineeInfo(trainee)
+}
+
 function displayTraineeInfo(trainee) {
 	var traineeInfoDiv = document.getElementById('traineeInfo')
 	traineeInfoDiv.innerHTML = `
