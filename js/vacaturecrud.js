@@ -1,32 +1,31 @@
 async function getVacatureById(id) {
-    try {
-        let response = await fetch(`http://localhost:8080/api/vacature/${id}`);
-        let vacature = await response.json();
-        displayVacatureInfo(vacature);
-    } catch (error) {
-        displayVacatureNotFound();
-        console.error("Error fetching data:", error);
-    }
+	try {
+		let response = await fetch(`20.126.244.168:8080/api/vacature/${id}`)
+		let vacature = await response.json()
+		displayVacatureInfo(vacature)
+	} catch (error) {
+		displayVacatureNotFound()
+		console.error('Error fetching data:', error)
+	}
 }
 
 async function postVacature(vacature) {
-    try {
-        await fetch(`http://localhost:8080/api/vacature`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-              },
-            body: JSON.stringify(vacature)
-        });
-
-    } catch (error) {
-        console.error("Error fetching data:", error);
-    }
+	try {
+		await fetch(`20.126.244.168:8080/api/vacature`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(vacature),
+		})
+	} catch (error) {
+		console.error('Error fetching data:', error)
+	}
 }
 
 function displayVacatureInfo(vacature) {
-    var vacatureInfoDiv = document.getElementById("vacatureInfo");
-    vacatureInfoDiv.innerHTML = `
+	var vacatureInfoDiv = document.getElementById('vacatureInfo')
+	vacatureInfoDiv.innerHTML = `
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -46,30 +45,31 @@ function displayVacatureInfo(vacature) {
                 </div>
             </div>
         </div>
-    `;
+    `
 
-    // Add Bootstrap classes for aesthetics
-    vacatureInfoDiv.querySelector('.card').classList.add('bg-light', 'text-dark');
-    vacatureInfoDiv.querySelector('h3').classList.add('text-primary');
-    vacatureInfoDiv.querySelector('.card-title').classList.add('mb-4');
+	// Add Bootstrap classes for aesthetics
+	vacatureInfoDiv.querySelector('.card').classList.add('bg-light', 'text-dark')
+	vacatureInfoDiv.querySelector('h3').classList.add('text-primary')
+	vacatureInfoDiv.querySelector('.card-title').classList.add('mb-4')
 }
 
 function displayVacatureNotFound() {
-    var vacatureInfoDiv = document.getElementById("vacatureInfo");
-    vacatureInfoDiv.innerHTML = "<p>Vacature not found.</p>";
+	var vacatureInfoDiv = document.getElementById('vacatureInfo')
+	vacatureInfoDiv.innerHTML = '<p>Vacature not found.</p>'
 }
 
 function dummyVacature() {
-    let vacature = { // placeholder data
-        standplaats: "Amsterdam",
-        omschrijving: "Lorem Ipsum...",
-        vereisten: "Java certificaat",
-        uren: 40,
-        duur: "5",
-        titel: "Java",
-        publicatieDatum: "2023-12-31",
-        startDatum: "2023-12-31",
-        eindDatum: "2023-12-31"
-    }
-    return vacature;
+	let vacature = {
+		// placeholder data
+		standplaats: 'Amsterdam',
+		omschrijving: 'Lorem Ipsum...',
+		vereisten: 'Java certificaat',
+		uren: 40,
+		duur: '5',
+		titel: 'Java',
+		publicatieDatum: '2023-12-31',
+		startDatum: '2023-12-31',
+		eindDatum: '2023-12-31',
+	}
+	return vacature
 }
