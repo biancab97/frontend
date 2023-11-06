@@ -23,6 +23,19 @@ async function postVacature(vacature) {
 	}
 }
 
+async function deleteVacature(id) {
+	try {
+		await fetch(`http://20.126.244.168:8080/api/vacature/${id}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+	} catch (error) {
+		console.error('Error deleting data:', error)
+	}
+}
+
 function displayVacatureInfo(vacature) {
 	var vacatureInfoDiv = document.getElementById('vacatureInfo')
 	vacatureInfoDiv.innerHTML = `
