@@ -44,8 +44,8 @@ async function postTrainee(trainee) {
 }
 
 function displayTraineeInfo(trainee) {
-    var traineeInfoDiv = document.getElementById("traineeInfo");
-    traineeInfoDiv.innerHTML = `
+	var traineeInfoDiv = document.getElementById('traineeInfo')
+	traineeInfoDiv.innerHTML = `
     <div class="row">
         <div class="col-md-6">
             <h3 class="text-primary">${trainee.naam}</h3>
@@ -63,21 +63,22 @@ function displayTraineeInfo(trainee) {
 }
 
 function displayTraineeNotFound() {
-    var traineeInfoDiv = document.getElementById("traineeInfo");
-    traineeInfoDiv.innerHTML = "<p>Trainee not found.</p>";
+	var traineeInfoDiv = document.getElementById('traineeInfo')
+	traineeInfoDiv.innerHTML = '<p>Trainee not found.</p>'
 }
 
 function dummyTrainee() {
-    let trainee = { // placeholder data
-        naam: "Amar",
-		wachtwoord: "abc123",
-		email: "Amar@youngcapital.nl",
-		foto: "foto",
-		telefoon: "+31612345678",
-		richting: "Dev Ops",
-		cv: "cv",
-		motivatie: "Lorem Ipsum",
-		bio: "Lorem ipsum..."
-    }
-    return trainee;
+	let trainee = {
+		// placeholder data
+		naam: 'Amar',
+		wachtwoord: 'abc123',
+		email: 'Amar@youngcapital.nl',
+		foto: 'foto',
+		telefoon: '+31612345678',
+		richting: 'Dev Ops',
+		cv: 'cv',
+		motivatie: 'Lorem Ipsum',
+		bio: 'Lorem ipsum...',
+	}
+	return trainee
 }
