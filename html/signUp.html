@@ -52,9 +52,18 @@
                 <!-- Form -->
                 <form id="signupForm" method="post">
                   <!-- Alert on successful sign up -->
-                  <div class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                  <div
+                    class="alert alert-success alert-dismissible fade show"
+                    role="alert"
+                    style="display: none"
+                  >
                     Sign up successful!
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="alert"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <!-- Email -->
                   <div class="mb-3">
@@ -70,7 +79,7 @@
                   </div>
                   <!-- Password -->
                   <div class="mb-3">
-                    <label for "password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password</label>
                     <input
                       type="password"
                       id="password"
@@ -109,7 +118,7 @@
                   </div>
                   <!-- Telefoonnummer (Phone Number) -->
                   <div class="mb-3">
-                    <label for "telefoonnummer" class="form-label"
+                    <label for="telefoonnummer" class="form-label"
                       >Telefoonnummer</label
                     >
                     <input
@@ -138,9 +147,27 @@
                         class="dropdown-menu"
                         aria-labelledby="persoonDropdown"
                       >
-                        <li><a class="dropdown-item" href="#" data-value="Trainee">Trainee</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="Talent Manager">Talent Manager</a></li>
-                        <li><a class="dropdown-item" href="#" data-value="Opdrachtgever">Opdrachtgever</a></li>
+                        <li>
+                          <a class="dropdown-item" href="#" data-value="Trainee"
+                            >Trainee</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="#"
+                            data-value="Talent Manager"
+                            >Talent Manager</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="#"
+                            data-value="Opdrachtgever"
+                            >Opdrachtgever</a
+                          >
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -161,7 +188,7 @@
         </div>
       </section>
     </main>
-    
+
     <!-- JavaScript -->
     <script>
       // Save Persoon (talent manager, trainee, opdrachtgever)
@@ -172,7 +199,7 @@
           $("#persoonDropdown").text(selectedValue);
         });
       });
-      
+
       // Prevent page from scrolling to top
       $(document).ready(function () {
         // Handle dropdown item click
