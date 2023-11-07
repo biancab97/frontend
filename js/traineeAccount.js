@@ -39,6 +39,11 @@ function populateField(fieldId, value) {
 }
 
 function setupEditSaveListeners(fieldId, trainee) {
+  // Remove existing click event listeners to avoid accumulation
+  $(`#edit${fieldId}`).off("click");
+  $(`#save${fieldId}`).off("click");
+
+  // Toggle the edit/save button
   $(`#edit${fieldId}`).click(function () {
     toggleEditSave(fieldId);
   });
@@ -47,6 +52,7 @@ function setupEditSaveListeners(fieldId, trainee) {
     // Create an object for updated data, initially with all the existing data
     const updatedData = { ...trainee };
 
+    // Handle the field updates
     switch (fieldId) {
       case "Name":
         updatedData.naam = $(`#NameInput`).val();
@@ -77,6 +83,7 @@ function setupEditSaveListeners(fieldId, trainee) {
         return;
     }
 
+    // Update the trainee
     try {
       await updateTrainee(trainee.id, updatedData);
 
@@ -91,6 +98,7 @@ function setupEditSaveListeners(fieldId, trainee) {
 }
 
 function toggleEditSave(fieldId) {
+  console.log("Toggle Edit Save");
   $(`#${fieldId}Text, #${fieldId}Input`).toggleClass("d-none");
   $(`#edit${fieldId}, #save${fieldId}`).toggleClass("d-none");
 }
