@@ -65,7 +65,5 @@ function loadNavBar() {
 
 	// Append the navigation bar to the document
 	document.body.insertBefore(navbarContainer, document.body.firstChild)
+	document.body.insertBefore(navbarContainer, document.body.firstChild)
 }
-
-// Call the function to load the navigation bar when the script is executed
-loadNavBar()
