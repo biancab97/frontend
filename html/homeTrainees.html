@@ -19,6 +19,7 @@
 		<script src="../js/vacaturecrud.js"></script>
 		<script src="../js/loonstrookcrud.js"></script>
 		<script src="../js/navBar.js"></script>
+		<script src="../js/footer.js"></script>
 	</head>
 
 	<body class="bg-light">
@@ -103,9 +104,14 @@
           });
       }
 
-      document.addEventListener("DOMContentLoaded", function (event) {
-        loadVacatures();
-      });
-    </script>
-  </body>
+			document.addEventListener('DOMContentLoaded', function (event) {
+				loadVacatures()
+			})
+		</script>
+
+		<script>
+			loadFooter()
+		</script>
+	</body>
+
 </html>
