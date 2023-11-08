@@ -1,10 +1,8 @@
-async function getLoonstrookById() {
-    var opdrachtId = document.getElementById("loonstrookId").value;
+async function getLoonstrookById(id) {
     try {
-        let response = await fetch(`http://localhost:8080/api/loonstrook/${opdrachtId}`)
+        let response = await fetch(`http://localhost:8080/api/loonstrook/${id}`)
         let loonstrook = await response.json();
-        displayLoonstrookInfo();
-        return loonstrook
+        displayLoonstrookInfo(loonstrook);
     } catch (error) {
         displayLoonstrookNotFound();
         console.error("Error fetching data:", error);
@@ -12,7 +10,6 @@ async function getLoonstrookById() {
 }
 
 async function postLoonstrook(loonstrook) {
-
     try {
         await fetch(`http://localhost:8080/api/loonstrook`, {
             method: "POST",
@@ -29,11 +26,27 @@ async function postLoonstrook(loonstrook) {
 
 function displayLoonstrookInfo(loonstrook) {
     var loonstrookInfoDiv = document.getElementById("loonstrookInfo");
+
     loonstrookInfoDiv.innerHTML = `
-        <p><strong>salarisBedrag:</strong> ${loonstrook.salarisBedrag}</p>
-        <p><strong>periode:</strong> ${loonstrook.periode}</p>
-        <p><strong>uitbetaald:</strong> ${loonstrook.uitbetaald}</p>
-    `;
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">${loonstrook.periode}</h3>
+                        <p class="card-text"><strong>Salaris Bedrag:</strong> ${loonstrook.salarisBedrag}</p>
+                        <p class="card-text"><strong>Uitbetaald:</strong> ${loonstrook.uitbetaald}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`
+
+// Add Bootstrap classes for aesthetics
+loonstrookInfoDiv.querySelector('.card').classList.add('bg-light', 'text-dark')
+loonstrookInfoDiv.querySelector('h3').classList.add('text-primary')
+loonstrookInfoDiv.querySelector('.card-title').classList.add('mb-4')
 }
 
 function displayLoonstrookNotFound() {
