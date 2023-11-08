@@ -42,6 +42,12 @@ function loadNavBar() {
             <a class="nav-link text-white" href="profiel.html">Profiel</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-white" href="homeOpdracht.html">Opdrachtgever</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="homeTalent.html">Talent Manager</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-white" href="homeTrainees.html"
               >Vacatures</a
             >
