@@ -3,6 +3,7 @@ async function getLoonstrookById() {
     try {
         let response = await fetch(`http://localhost:8080/api/loonstrook/${opdrachtId}`)
         let loonstrook = await response.json();
+        displayLoonstrookInfo();
         return loonstrook
     } catch (error) {
         displayLoonstrookNotFound();
