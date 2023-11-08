@@ -49,7 +49,7 @@ function loadNavBar() {
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="homeTrainees.html"
-              >Vacatures</a
+              >Trainee</a
             >
           </li>
           <li class="nav-item">
@@ -70,6 +70,5 @@ function loadNavBar() {
     `
 
 	// Append the navigation bar to the document
-	document.body.insertBefore(navbarContainer, document.body.firstChild)
 	document.body.insertBefore(navbarContainer, document.body.firstChild)
 }
