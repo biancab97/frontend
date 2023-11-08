@@ -18,6 +18,7 @@ async function postVacature(vacature) {
 			},
 			body: JSON.stringify(vacature),
 		})
+		console.log('success')
 	} catch (error) {
 		console.error('Error fetching data:', error)
 	}

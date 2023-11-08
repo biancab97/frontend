@@ -27,7 +27,12 @@
 			<div class="spinner-border" role="status" id="spinnerId" hidden>
 				<span class="sr-only"></span>
 			</div>
-			<div class="alert alert-success" role="alert" id="notification" hidden>
+			<div
+				class="alert alert-success mt-5"
+				role="alert"
+				id="notification"
+				hidden
+			>
 				Het is gelukt!
 			</div>
 		</div>
@@ -151,8 +156,10 @@
 				]
 
 				postVacature(data[0])
+
 				spinner.setAttribute('hidden', true)
 				notification.removeAttribute('hidden')
+
 				setTimeout(() => {
 					notification.setAttribute('hidden', true)
 				}, '4000')
