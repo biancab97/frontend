@@ -1,10 +1,16 @@
 function loadNavBar() {
-    // Create a container element for the navigation bar
-    const navbarContainer = document.createElement("nav");
-    navbarContainer.classList.add("navbar", "navbar-expand-lg", "navbar-light", "bg-primary", "fixed-top");
-  
-    // Define the HTML code for the navigation bar
-    navbarContainer.innerHTML = `
+	// Create a container element for the navigation bar
+	const navbarContainer = document.createElement('nav')
+	navbarContainer.classList.add(
+		'navbar',
+		'navbar-expand-lg',
+		'navbar-light',
+		'bg-primary',
+		'fixed-top',
+	)
+
+	// Define the HTML code for the navigation bar
+	navbarContainer.innerHTML = `
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
       <a class="navbar-brand" href="homeTrainees.html">
@@ -36,15 +42,15 @@ function loadNavBar() {
             <a class="nav-link text-white" href="profiel.html">Profiel</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="loonstrook.html"
-              >Loonstroken</a
+            <a class="nav-link text-white" href="homeTrainees.html"
+              >Vacatures</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="berichten.html">Berichten</a>
+            <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="berichten.html">Meldingen</a>
+            <a class="nav-link text-white" href="berichten.html">Berichten</a>
           </li>
         </ul>
       </div>
@@ -55,12 +61,11 @@ function loadNavBar() {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
-    `;
-  
-    // Append the navigation bar to the document
-    document.body.insertBefore(navbarContainer, document.body.firstChild);
-  }
-  
-  // Call the function to load the navigation bar when the script is executed
-  loadNavBar();
-  
+    `
+
+	// Append the navigation bar to the document
+	document.body.insertBefore(navbarContainer, document.body.firstChild)
+}
+
+// Call the function to load the navigation bar when the script is executed
+loadNavBar()
