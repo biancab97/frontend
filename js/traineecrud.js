@@ -48,13 +48,13 @@ async function postTrainee(trainee) {
 	}
 }
 
-function getDisplayTrainee(traineeId) {
-	trainee = getTraineeById(traineeId)
+async function getDisplayTrainee(traineeId) {
+	trainee = await getTraineeById(traineeId)
 	displayTraineeInfo(trainee)
 }
 
 function displayTraineeInfo(trainee) {
-	var traineeInfoDiv = document.getElementById('traineeInfo')
+	let traineeInfoDiv = document.getElementById('traineeInfo')
 	traineeInfoDiv.innerHTML = `
     <div class="row">
         <div class="col-md-6">
