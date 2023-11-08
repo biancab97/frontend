@@ -16,10 +16,14 @@
 			crossorigin="anonymous"
 		></script>
 		<script src="../js/vacaturecrud.js"></script>
+		<script src="../js/navBar.js"></script>
 	</head>
 
 	<body>
-		<div class="d-flex justify-content-center mt-3">
+		<script>
+			loadNavBar()
+		</script>
+		<div class="d-flex justify-content-center mt-5">
 			<div class="spinner-border" role="status" id="spinnerId" hidden>
 				<span class="sr-only"></span>
 			</div>
@@ -27,7 +31,7 @@
 				Het is gelukt!
 			</div>
 		</div>
-		<form onsubmit="createVacature()" action="#">
+		<form onsubmit="createVacature()" action="#" class="m-5">
 			<div class="m-4">
 				<div class="mb-3">
 					<label for="vacatureNaam" class="form-label">Vacature Naam</label>
