@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vacature information</title>
+  </head>
+
+  <body>
+    <h1>Vacature information</h1>
+    <div>
+      <label for="vacatureId">Enter Vacature ID:</label>
+      <input type="number" id="vacatureId" />
+      <button onclick="getVacatureById()">Get Vacature</button>
+      <button onclick="postVacature(dummyVacature())">Post Vacature</button>
+    </div>
+    <div id="vacatureInfo"></div>
+
+    <h1>Opdracht information</h1>
+    <div>
+      <label for="opdrachtId">Enter Opdracht ID:</label>
+      <input type="number" id="opdrachtId" />
+      <button onclick="getOpdrachtById()">Get Opdracht</button>
+      <button onclick="postOpdracht(dummyOpdracht())">Post Opdracht</button>
+    </div>
+    <div id="opdrachtInfo"></div>
+
+    <h1>Trainee information</h1>
+    <div>
+      <label for="traineeId">Enter Trainee ID:</label>
+      <input type="number" id="traineeId" />
+      <button onclick="getTraineeById()">Get Trainee</button>
+      <button onclick="postTrainee(dummyTrainee())">Post Trainee</button>
+    </div>
+    <div id="traineeInfo"></div>
+
+    <h1>Opdrachtgever information</h1>
+    <div>
+      <label for="opdrachtgeverId">Enter Opdrachtgever ID:</label>
+      <input type="number" id="opdrachtgeverId" />
+      <button onclick="getOpdrachtgeverById()">Get Opdrachtgever</button>
+      <button onclick="postOpdrachtgever(dummyOpdrachtgever())">
+        Post Opdrachtgever
+      </button>
+    </div>
+    <div id="opdrachtgeverInfo"></div>
+
+    <h1>Talentmanager information</h1>
+    <div>
+      <label for="talentmanagerId">Enter Talentmanager ID:</label>
+      <input type="number" id="talentmanagerId" />
+      <button onclick="getTalentmanagerById()">Get Talentmanager</button>
+      <button onclick="postTalentmanager(dummyTalentmanager())">
+        Post Talentmanager
+      </button>
+    </div>
+    <div id="talentmanagerInfo"></div>
+
+    <script src="js/vacaturecrud.js"></script>
+    <script src="js/opdrachtcrud.js"></script>
+    <script src="js/traineecrud.js"></script>
+    <script src="js/opdrachtgevercrud.js"></script>
+    <script src="js/talentmanagercrud.js"></script>
+  </body>
+</html>

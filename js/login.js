@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const notificationMessage = document.getElementById("notification-message");
   const successMessage = document.getElementById("success-message");
   const errorAlert = document.getElementById("error-alert");
+  const signUpForm = document.getElementById("sign-up-form");
 
   // Handle form submission
   loginForm.addEventListener("submit", function (e) {
@@ -16,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // If login is successful, show success message
       successMessage.style.display = "block";
       errorAlert.style.display = "none";
+
+      // Redirect to dashboard.html when login is successful
+      window.location.href = 'dashboard.html';
     } else {
       // Show an error message for incorrect login
       errorAlert.style.display = "block";
@@ -25,9 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Handle reset password button click
   resetPasswordButton.addEventListener("click", function () {
-    // TODO: Implement your reset password logic here
-
+    // TODO: Implement reset password logic here
+    console.log("You clicked the reset password button");
     // Show a notification message
     notificationMessage.style.display = "block";
   });
+
+
+
 });
