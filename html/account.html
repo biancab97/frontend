@@ -23,7 +23,7 @@
 
 	<body class="bg-light">
 		<script>
-			loadNavBar()
+			loadNavBar();
 		</script>
 		<!-- Persoonsgegevens Section -->
 		<div class="container my-5" style="margin-top: 100px !important">
@@ -93,15 +93,63 @@
 						<!-- Uitstroomrichting -->
 						<div class="form-group mb-3">
 							<h3 class="fw-bold">Uitstroomrichting</h3>
-							<p id="UitstroomrichtingText" class="text-secondary"></p>
-							<input
-								id="UitstroomrichtingInput"
-								type="text"
-								class="form-control d-none"
-							/>
-							<button id="editUitstroomrichting" class="btn btn-primary">
-								Edit
-							</button>
+							<div class="dropdown">
+								<button
+									class="btn btn-primary dropdown-toggle"
+									type="button"
+									id="uitstroomDropdown"
+									data-bs-toggle="dropdown"
+									aria-haspopup="true"
+									aria-expanded="false"
+								>
+									<span
+										id="UitstroomrichtingText"
+										class="text-secondary"
+									></span>
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="uitstroomDropdown">
+									<li>
+										<a
+											class="dropdown-item"
+											href="#"
+											onclick="selectUitstroomrichting('Low Code')"
+											>Low Code</a
+										>
+									</li>
+									<li>
+										<a
+											class="dropdown-item"
+											href="#"
+											onclick="selectUitstroomrichting('Data Analist')"
+											>Data Analist</a
+										>
+									</li>
+									<li>
+										<a
+											class="dropdown-item"
+											href="#"
+											onclick="selectUitstroomrichting('Big Data')"
+											>Big Data</a
+										>
+									</li>
+									<li>
+										<a
+											class="dropdown-item"
+											href="#"
+											onclick="selectUitstroomrichting('Java')"
+											>Java</a
+										>
+									</li>
+									<li>
+										<a
+											class="dropdown-item"
+											href="#"
+											onclick="selectUitstroomrichting('DevOps')"
+											>DevOps</a
+										>
+									</li>
+								</ul>
+							</div>
 							<button id="saveUitstroomrichting" class="btn btn-success d-none">
 								Save
 							</button>

@@ -112,3 +112,9 @@ function populateDownloadLink(fieldId, downloadUrl, linkText) {
   const downloadLink = $(`#${fieldId}Text`);
   downloadLink.html(`<a href="${downloadUrl}" download>${linkText}</a>`);
 }
+
+function selectUitstroomrichting(value) {
+  document.getElementById('UitstroomrichtingText').innerText = value;
+  document.getElementById('UitstroomrichtingInput').value = value;
+  document.getElementById('saveUitstroomrichting').classList.remove("d-none"); // Show the Save button
+}
