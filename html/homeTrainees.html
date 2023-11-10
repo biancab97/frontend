@@ -18,6 +18,7 @@
 		<script src="../js/vacaturecrud.js"></script>
 		<script src="../js/loonstrookcrud.js"></script>
 		<script src="../js/navBar.js"></script>
+		<script src="../js/footer.js"></script>
 	</head>
 
 	<body class="bg-light">
@@ -68,7 +69,7 @@
 			}
 
 			function loadVacatures() {
-				fetch('http://20.126.244.168:8080/api/vacature')
+				fetch('https://yc2310-match-backend.azurewebsites.net/api/vacature')
 					.then((res) => res.json())
 					.then((data) => {
 						let html = ''
@@ -105,6 +106,10 @@
 			document.addEventListener('DOMContentLoaded', function (event) {
 				loadVacatures()
 			})
+		</script>
+
+		<script>
+			loadFooter()
 		</script>
 	</body>
 </html>
