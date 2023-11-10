@@ -67,6 +67,7 @@ function setupEditSaveListeners(fieldId, trainee) {
         updatedData.telefoon = $(`#TelefoonnummerInput`).val();
         break;
       case "Uitstroomrichting":
+        console.log($(`#UitstroomrichtingText`).text());
         updatedData.richting = $(`#UitstroomrichtingText`).text();
         break;
       case "CV":
@@ -113,29 +114,7 @@ function populateDownloadLink(fieldId, downloadUrl, linkText) {
 }
 
 function selectUitstroomrichting(value) {
+  console.log("Selecting value");
   document.getElementById('UitstroomrichtingText').innerText = value;
   document.getElementById('saveUitstroomrichting').classList.remove("d-none"); // Show the Save button
-}
-
-async function saveUitstroomrichting() {
-  const traineeId = 2; // Set the appropriate trainee ID
-  const uitstroomrichtingTextElement = document.getElementById('UitstroomrichtingText');
-  const uitstroomDropdownButton = document.getElementById('uitstroomDropdown');
-
-  const updatedData = {
-    richting: uitstroomrichtingTextElement.innerText
-  };
-
-  try {
-    await updateTrainee(traineeId, updatedData);
-
-    // Optionally, you can reload the trainee's data after the update
-    const updatedTrainee = await getTraineeById(traineeId);
-    populateFields(updatedTrainee);
-
-    // Update the dropdown button text
-    uitstroomDropdownButton.innerText = updatedTrainee.richting;
-  } catch (error) {
-    console.error("Error updating Uitstroomrichting:", error);
-  }
 }
