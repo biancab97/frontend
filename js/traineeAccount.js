@@ -67,8 +67,8 @@ function setupEditSaveListeners(fieldId, trainee) {
         updatedData.telefoon = $(`#TelefoonnummerInput`).val();
         break;
       case "Uitstroomrichting":
-        console.log($(`#UitstroomrichtingText`).text());
         updatedData.richting = $(`#UitstroomrichtingText`).text();
+        $(`#${fieldId}Text, #${fieldId}Input`).toggleClass("d-none");      
         break;
       case "CV":
         // Handle CV input if needed
@@ -114,7 +114,6 @@ function populateDownloadLink(fieldId, downloadUrl, linkText) {
 }
 
 function selectUitstroomrichting(value) {
-  console.log("Selecting value");
   document.getElementById('UitstroomrichtingText').innerText = value;
   document.getElementById('saveUitstroomrichting').classList.remove("d-none"); // Show the Save button
 }
