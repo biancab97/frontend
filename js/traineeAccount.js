@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
   // Set the traineeId to any specific ID you want to retrieve.
-  const traineeId = 8;
+  const traineeId = 2;
 
   try {
     const trainee = await getTraineeById(traineeId);
@@ -67,7 +67,7 @@ function setupEditSaveListeners(fieldId, trainee) {
         updatedData.telefoon = $(`#TelefoonnummerInput`).val();
         break;
       case "Uitstroomrichting":
-        updatedData.richting = $(`#UitstroomrichtingInput`).val();
+        updatedData.richting = $(`#UitstroomrichtingText`).text();
         break;
       case "CV":
         // Handle CV input if needed
@@ -98,7 +98,6 @@ function setupEditSaveListeners(fieldId, trainee) {
 }
 
 function toggleEditSave(fieldId) {
-  console.log("Toggle Edit Save");
   $(`#${fieldId}Text, #${fieldId}Input`).toggleClass("d-none");
   $(`#edit${fieldId}, #save${fieldId}`).toggleClass("d-none");
 }
@@ -115,6 +114,28 @@ function populateDownloadLink(fieldId, downloadUrl, linkText) {
 
 function selectUitstroomrichting(value) {
   document.getElementById('UitstroomrichtingText').innerText = value;
-  document.getElementById('UitstroomrichtingInput').value = value;
   document.getElementById('saveUitstroomrichting').classList.remove("d-none"); // Show the Save button
+}
+
+async function saveUitstroomrichting() {
+  const traineeId = 2; // Set the appropriate trainee ID
+  const uitstroomrichtingTextElement = document.getElementById('UitstroomrichtingText');
+  const uitstroomDropdownButton = document.getElementById('uitstroomDropdown');
+
+  const updatedData = {
+    richting: uitstroomrichtingTextElement.innerText
+  };
+
+  try {
+    await updateTrainee(traineeId, updatedData);
+
+    // Optionally, you can reload the trainee's data after the update
+    const updatedTrainee = await getTraineeById(traineeId);
+    populateFields(updatedTrainee);
+
+    // Update the dropdown button text
+    uitstroomDropdownButton.innerText = updatedTrainee.richting;
+  } catch (error) {
+    console.error("Error updating Uitstroomrichting:", error);
+  }
 }
