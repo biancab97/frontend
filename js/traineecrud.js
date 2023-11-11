@@ -95,11 +95,11 @@ function displayOpdrachtVanTraineeInfo(opdracht) {
     <div class="row">
         <div class="col-md-6">
             <h3 class="text-primary">${opdracht.naam}</h3>
+			<p class="card-text"><strong>Titel:</strong> ${opdracht.titel}</p>
+			<p class="card-text"><strong>Uren:</strong> ${opdracht.uren}</p>
+            <p class="card-text"><strong>Duur:</strong> ${opdracht.duur}</p>
             <p class="card-text"><strong>E-mail:</strong> ${opdracht.email}</p>
             <p class="card-text"><strong>Telefoon:</strong> ${opdracht.telefoon}</p>
-            <p class="card-text"><strong>Richting:</strong> ${opdracht.richting}</p>
-            <p class="card-text"><strong>Motivatie:</strong> ${opdracht.motivatie}</p>
-            <p class="card-text"><strong>Bio:</strong> ${opdracht.bio}</p>
         </div>
         <div class="col-md-6">
             <img src="../img/${opdracht.foto}" class="img-fluid">
