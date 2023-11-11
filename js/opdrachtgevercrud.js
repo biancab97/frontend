@@ -2,7 +2,7 @@ async function getOpdrachtgeverById() {
 	var opdrachtgeverId = document.getElementById('opdrachtgeverId').value
 	try {
 		let response = await fetch(
-			`https://yc2310-match-backend.azurewebsites.net/api/opdrachtgever/${opdrachtgeverId}`
+			`${backendPath}api/opdrachtgever/${opdrachtgeverId}`
 		)
 		let opdrachtgever = await response.json()
 		displayOpdrachtgeverInfo(opdrachtgever)
@@ -15,7 +15,7 @@ async function getOpdrachtgeverById() {
 async function postOpdrachtgever(opdrachtgever) {
 	try {
 		await fetch(
-			`https://yc2310-match-backend.azurewebsites.net/api/opdrachtgever`,
+			`${backendPath}api/opdrachtgever`,
 			{
 				method: 'POST',
 				headers: {

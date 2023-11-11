@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Loonstroken voor trainees!</title>
+		<title>Dashboard voor trainees!</title>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -15,6 +15,8 @@
 			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 			crossorigin="anonymous"
 		></script>
+		<script src="../js/vacaturecrud.js"></script>
+		<script src="../js/traineecrud.js"></script>
 		<script src="../js/loonstrookcrud.js"></script>
 		<script src="../js/navBar.js"></script>
 		<script src="../js/footer.js"></script>
@@ -23,31 +25,31 @@
 	<body class="bg-light">
 		<script>
 			loadNavBar()
+			let traineeId = 9 // traineeId is afhankelijk van wie er ingelogd is
 		</script>
-
-		<!-- Overzicht loonstroken -->
-		<div class="container my-5" style="margin-top: 100px !important">
+		<!-- Overzicht vacatures -->
+		<div class="container my-5">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="display-4 text-center">Loonstroken</h1>
+					<h1 class="display-4 text-center mt-5">Matches</h1>
 				</div>
 			</div>
-			<div class="row" id="loonstroken-row"></div>
+			<div class="row" id="vacatures-row"></div>
 		</div>
 
-		<!-- Per loonstrook knopje 'informatie' die leidt naar de loonstrook -->
+		<!-- Per vacature knopje 'informatie' die leidt naar de vacature -->
 		<div
 			class="modal fade"
-			id="loonstrookModal"
+			id="vacatureModal"
 			tabindex="-1"
-			aria-labelledby="loonstrookModalLabel"
+			aria-labelledby="vacatureModalLabel"
 			aria-hidden="true"
 		>
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="loonstrookModalLabel">
-							Loonstrook Details
+						<h5 class="modal-title" id="vacatureModalLabel">
+							Matches
 						</h5>
 						<button
 							type="button"
@@ -56,34 +58,43 @@
 							aria-label="Close"
 						></button>
 					</div>
-					<div class="modal-body" id="loonstrookInfo">
-						<!-- Loonstrook details will be displayed here (see loonstrookcrud.js) -->
+					<div class="modal-body" id="opdrachtVanTraineeInfo">
+						<!-- Vacature details will be displayed here -->
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<script>
-			function gotoLoonstrook(id) {
-				getLoonstrookById(id)
+			function gotoOpdrachtenVanTrainee(traineeId, opdrachtId) {
+				getOpdrachtVanTraineeById(traineeId, opdrachtId)
 			}
 
-			function loadLoonstroken() {
-				fetch(`${backendPath}api/loonstrook`)
+			function loadVacatures1(id) {
+				fetch(`${backendPath}api/trainee/${id}/opdrachten`)
 					.then((res) => res.json())
 					.then((data) => {
+						console.log(data)
 						let html = ''
 
-						data.forEach((loonstrook) => {
+						data.forEach((vacature) => {
+							// Show only the first 100 characters of the omschrijving on the main page
+							const summary =
+								vacature.vacatureOmschrijving.length > 100
+									? vacature.vacatureOmschrijving.substring(0, 100) + '...'
+									: vacature.vacatureOmschrijving
+
 							html += `
                         <div class="col-12 col-md-4 col-lg-3 mt-4">
                             <div class="card">
                                 <img src="https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">${loonstrook.periode}</h5>
-                                    <p class="card-text">€${loonstrook.salarisBedrag}</p>
+                                    <h5 class="card-title">${vacature.titel}</h5>
+                                    <p class="card-text"><strong>Bedrijf: </strong>${vacature.naam}</p>
+									<p class="card-text"><strong>Status: </strong>${vacature.status}</p>
+									<p class="card-text">${summary}</p>
                                     <div class="d-flex justify-content-between">
-                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loonstrookModal" onclick="gotoLoonstrook(${loonstrook.id})">
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoOpdrachtenVanTrainee(${traineeId},${vacature.opdrachtId})">
                                             Informatie
                                         </button>
                                     </div>
@@ -93,12 +104,12 @@
                         `
 						})
 
-						document.getElementById('loonstroken-row').innerHTML = html
+						document.getElementById('vacatures-row').innerHTML = html
 					})
 			}
 
 			document.addEventListener('DOMContentLoaded', function (event) {
-				loadLoonstroken()
+				loadVacatures1(traineeId)
 			})
 		</script>
 
