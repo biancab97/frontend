@@ -1,7 +1,7 @@
 async function getVacatureById(id) {
 	try {
 		let response = await fetch(
-			`https://yc2310-match-backend.azurewebsites.net/api/vacature/${id}`
+			`${backendPath}api/vacature/${id}`
 		)
 		let vacature = await response.json()
 		displayVacatureInfo(vacature)
@@ -13,7 +13,7 @@ async function getVacatureById(id) {
 
 async function postVacature(vacature) {
 	try {
-		await fetch(`https://yc2310-match-backend.azurewebsites.net/api/vacature`, {
+		await fetch(`${backendPath}api/vacature`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ async function postVacature(vacature) {
 async function deleteVacature(id) {
 	try {
 		await fetch(
-			`https://yc2310-match-backend.azurewebsites.net/api/vacature/${id}`,
+			`${backendPath}api/vacature/${id}`,
 			{
 				method: 'DELETE',
 				headers: {
