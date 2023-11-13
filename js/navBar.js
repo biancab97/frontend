@@ -142,7 +142,7 @@ const loadNavBar = () => {
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="homeTrainees.html">Mijn Opdracht</a>
+          <a class="nav-link text-white" href="opdrachtgeverMatches.html">Mijn Opdracht</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
