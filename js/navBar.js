@@ -33,7 +33,7 @@ const loadNavBar = () => {
 		navbarContainer.innerHTML = `
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-      <a class="navbar-brand" href="homeTrainees.html">
+      <a class="navbar-brand" href="homeOpdracht.html">
         <img
           src="../icons/logo.png"
           width="100"
@@ -142,6 +142,9 @@ const loadNavBar = () => {
           >
         </li>
         <li class="nav-item">
+          <a class="nav-link text-white" href="homeTrainees.html">Mijn Opdracht</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
         </li>
         <li class="nav-item">
@@ -162,7 +165,7 @@ const loadNavBar = () => {
 		navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-    <a class="navbar-brand" href="homeTrainees.html">
+    <a class="navbar-brand" href="homeTalent.html">
       <img
         src="../icons/logo.png"
         width="100"
