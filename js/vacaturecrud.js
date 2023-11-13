@@ -1,8 +1,6 @@
 async function getVacatureById(id) {
 	try {
-		let response = await fetch(
-			`https://yc2310-match-backend.azurewebsites.net/api/vacature/${id}`
-		)
+		let response = await fetch(`${backendPath}api/vacature/${id}`)
 		let vacature = await response.json()
 		displayVacatureInfo(vacature)
 	} catch (error) {
@@ -25,8 +23,7 @@ async function getVacatureByIdToEdit(id) {
 
 async function postVacature(vacature) {
 	try {
-		console.log(vacature)
-		await fetch(`https://yc2310-match-backend.azurewebsites.net/api/vacature`, {
+		await fetch(`${backendPath}api/vacature`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -60,15 +57,12 @@ async function putVacature(vacature) {
 
 async function deleteVacature(id) {
 	try {
-		await fetch(
-			`https://yc2310-match-backend.azurewebsites.net/api/vacature/${id}`,
-			{
-				method: 'DELETE',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}
-		)
+		await fetch(`${backendPath}api/vacature/${id}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
 	} catch (error) {
 		console.error('Error deleting data:', error)
 	}
