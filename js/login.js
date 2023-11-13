@@ -31,10 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
   resetPasswordButton.addEventListener("click", function () {
     // TODO: Implement reset password logic here
     console.log("You clicked the reset password button");
+    
+
     // Show a notification message
     notificationMessage.style.display = "block";
   });
-
-
-
 });
