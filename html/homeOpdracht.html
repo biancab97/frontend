@@ -147,9 +147,9 @@
 			                                  <button class="btn btn-success m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
 			                                      Matchen
 			                                  </button>
-			                                  <button class="btn btn-warning m-2" data-bs-toggle="modal" data-bs-target="#vacatureModal" onclick="gotoVacature(${vacature.id})">
-			                                      Bekijken
-			                                  </button>
+			                                  <a class="btn btn-warning m-2 text-white" href=editVacature.html#${vacature.id}>
+						                                Edit
+                                        </a>
 			                                  <button class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deletedModal" onclick="deleteVacatureById(${vacature.id})">
 			                                      Verwijderen
 			                                  </button>
