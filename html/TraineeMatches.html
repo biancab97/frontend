@@ -89,17 +89,16 @@
 		}
 
 		document.addEventListener('DOMContentLoaded', async function (event) {
-			let userID = localStorage.getItem('ID');
+			let userID = localStorage.getItem('id');
 			if (userID == null) {
 				traineeId = 9 // traineeId is afhankelijk van wie er ingelogd is
 			} else {
 				traineeId = userID
 			}
-			traineeId = 8 // overschrijven als tijdelijke oplossing 
 			loadOpdrachtenVanTrainee(traineeId)
 			trainee = await getTraineeById(traineeId)
-			document.getElementById('vacatureModalLabel').innerHTML = `Opdrachten van ${trainee.naam} met ID: ${traineeId}`
-			document.getElementById('trainee_id_matches').innerHTML = `Opdrachten van ${trainee.naam} met ID: ${traineeId}`
+			document.getElementById('vacatureModalLabel').innerHTML = `Opdrachten van ${trainee.naam}`
+			document.getElementById('trainee_id_matches').innerHTML = `Opdrachten van ${trainee.naam}`
 		})
 	</script>
 

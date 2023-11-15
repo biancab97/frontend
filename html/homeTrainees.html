@@ -106,7 +106,7 @@
 			}
 
 			document.addEventListener("DOMContentLoaded", function (event) {
-				let userID = localStorage.getItem("ID");
+				let userID = localStorage.getItem("id");
 				if (userID == null) {
 					traineeId = 9; // traineeId is afhankelijk van wie er ingelogd is
 				} else {
@@ -115,7 +115,7 @@
 				loadVacatures();
 				document.getElementById(
 					"trainee-id"
-				).innerHTML = `Vacatures voor trainee: ${traineeId}`;
+				).innerHTML = `Vacatures`;
 			});
 		</script>
 

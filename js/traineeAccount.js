@@ -41,7 +41,7 @@ function populateField(fieldId, value) {
 	fieldText.text(value);
 }
 
-function updateTrainee() {
+async function updateTrainee() {
 		// Update the trainee
 		try {
 			await updateTrainee(trainee.id, updatedData);
@@ -52,7 +52,7 @@ function updateTrainee() {
 		} catch (error) {
 			console.error(`Error updating ${fieldId}:`, error);
 		}
-	});
+	
 }
 
 function toggleEditSave(fieldId) {
