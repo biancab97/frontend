@@ -36,7 +36,7 @@ async function getVacatureByIdToEdit(id) {
 
 async function postVacature(vacature) {
 	// let opdrachtgeverId = localStorage.getItem("id")
-	let opdrachtgeverId = 1;
+	let opdrachtgeverId = 2;
 	try {
 		await fetch(`${backendPath}api/vacature/${opdrachtgeverId}`, {
 			method: 'POST',
