@@ -1,15 +1,5 @@
 // const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
 const backendPath = "http://localhost:8080/";
-function loadNavBar() {
-	// Create a container element for the navigation bar
-	const navbarContainer = document.createElement("nav");
-	navbarContainer.classList.add(
-		"navbar",
-		"navbar-expand-lg",
-		"navbar-light",
-		"bg-primary",
-		"fixed-top"
-	);
 
 const showProfile = (item) => {
   let rol = item.innerHTML
