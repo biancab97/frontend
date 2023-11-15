@@ -32,54 +32,64 @@
 				<h2 class="fw-bold mb-4">Persoonsgegevens</h2>
 				<div class="card">
 					<div class="card-body">
-						<!-- Naam -->
-						<div class="form-group mb-3">
-							<h3 class="fw-bold">Naam</h3>
-							<p id="NameText" class="text-secondary"></p>
-							<input id="NameInput" type="text" class="form-control d-none" />
-							<button id="editName" class="btn btn-primary">Edit</button>
-							<button id="saveName" class="btn btn-success d-none">Save</button>
-						</div>
-						<!-- Telefoonnummer -->
-						<div class="form-group mb-3">
-							<h3 class="fw-bold">Telefoonnummer</h3>
-							<p id="TelefoonnummerText" class="text-secondary"></p>
-							<input
-								id="TelefoonnummerInput"
-								type="text"
-								class="form-control d-none"
-							/>
-							<button id="editTelefoonnummer" class="btn btn-primary">
-								Edit
+						<form>
+							<!-- Naam -->
+							<div class="mb-3">
+								<label for="nameInput" class="form-label">Naam</label>
+								<input
+									type="text"
+									class="form-control"
+									id="nameInput"
+									aria-describedby="nameHelp"
+								/>
+								<div id="nameHelp" class="form-text">
+									Vul hier jouw naam in.
+								</div>
+							</div>
+							<!-- Email Adres -->
+							<div class="mb-3">
+								<label for="emailInput" class="form-label">Email Adres</label>
+								<input
+									type="email"
+									class="form-control"
+									id="emailInput"
+									aria-describedby="emailHelp"
+								/>
+								<div id="emailHelp" class="form-text">
+									Vul hier jouw email adres in.
+								</div>
+							</div>
+							<!-- Wachtwoord -->
+							<div class="mb-3">
+								<label for="wachtwoordInput" class="form-label"
+									>Wachtwoord</label
+								>
+								<input
+									type="password"
+									class="form-control"
+									id="wachtwoordInput"
+								/>
+							</div>
+							<!-- Telefoonnummer -->
+							<div class="mb-3">
+								<label for="telefoonnummerInput" class="form-label"
+									>Telefoonnummer</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="telefoonnummerInput"
+									aria-describedby="telefoonnummerHelp"
+								/>
+								<div id="telefoonnummerHelp" class="form-text">
+									Vul hier jouw telefoonnummer in.
+								</div>
+							</div>
+							<!-- Submit button -->
+							<button type="submit" class="btn btn-primary" id="submitBtn">
+								Submit
 							</button>
-							<button id="saveTelefoonnummer" class="btn btn-success d-none">
-								Save
-							</button>
-						</div>
-						<!-- Email -->
-						<div class="form-group mb-3">
-							<h3 class="fw-bold">Email</h3>
-							<p id="EmailText" class="text-secondary"></p>
-							<input id="EmailInput" type="email" class="form-control d-none" />
-							<button id="editEmail" class="btn btn-primary">Edit</button>
-							<button id="saveEmail" class="btn btn-success d-none">
-								Save
-							</button>
-						</div>
-						<!-- Wachtwoord -->
-						<div class="form-group">
-							<h3 class="fw-bold">Wachtwoord</h3>
-							<p id="PasswordText" class="text-secondary">************</p>
-							<input
-								id="PasswordInput"
-								type="password"
-								class="form-control d-none"
-							/>
-							<button id="editPassword" class="btn btn-primary">Edit</button>
-							<button id="savePassword" class="btn btn-success d-none">
-								Save
-							</button>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -95,60 +105,20 @@
 						<div class="form-group mb-3">
 							<h3 class="fw-bold">Uitstroomrichting</h3>
 							<div class="dropdown">
-								<button
-									class="btn btn-primary dropdown-toggle"
-									type="button"
+								<select
+									class="form-select"
 									id="uitstroomDropdown"
-									data-bs-toggle="dropdown"
-									aria-haspopup="true"
-									aria-expanded="false"
+									aria-label="Default select example"
+									onchange="selectUitstroomrichting(event)"
 								>
-									<span
-										id="UitstroomrichtingText"
-										class="text-secondary"
-									></span>
-								</button>
-								<ul class="dropdown-menu" aria-labelledby="uitstroomDropdown">
-									<li>
-										<a
-											class="dropdown-item"
-											onclick="selectUitstroomrichting('Low Code')"
-											>Low Code</a
-										>
-									</li>
-									<li>
-										<a
-											class="dropdown-item"
-											onclick="selectUitstroomrichting('Data Analist')"
-											>Data Analist</a
-										>
-									</li>
-									<li>
-										<a
-											class="dropdown-item"
-											onclick="selectUitstroomrichting('Big Data')"
-											>Big Data</a
-										>
-									</li>
-									<li>
-										<a
-											class="dropdown-item"
-											onclick="selectUitstroomrichting('Java')"
-											>Java</a
-										>
-									</li>
-									<li>
-										<a
-											class="dropdown-item"
-											onclick="selectUitstroomrichting('DevOps')"
-											>DevOps</a
-										>
-									</li>
-								</ul>
+									<option selected>Selecteer</option>
+									<option value="DevOps">DevOps</option>
+									<option value="LowCode">Low Code</option>
+									<option value="DataAnalist">Data Analist</option>
+									<option value="BigData">Big Data</option>
+									<option value="Java">Java</option>
+								</select>
 							</div>
-							<button id="saveUitstroomrichting" class="btn btn-success d-none">
-								Save
-							</button>
 						</div>
 						<!-- Profielfoto -->
 						<div class="form-group mb-3">
