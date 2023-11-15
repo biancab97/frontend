@@ -70,6 +70,7 @@
 			}
 
 			function loadVacatures() {
+				let traineeId = localStorage.getItem("id")
 				fetch(`${backendPath}api/vacature`)
 					.then((res) => res.json())
 					.then((data) => {
