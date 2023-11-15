@@ -76,6 +76,7 @@
 			fetch(`${backendPath}api/trainee`)
 				.then((res) => res.json())
 				.then((data) => {
+					console.log("lol", traineeIds)
 					let html = ''
 
 					data.forEach((trainee) => {
@@ -175,8 +176,15 @@
 
 
 		async function getTraineeIds(vacatureId) {
+
 			return fetch(`${backendPath}api/opdrachtgever/${opdrachtgeverId}/opdrachten`)
-				.then(response => response.json())
+				.then(response => {
+					if (response.ok) {
+						return response.json()
+					} else {
+						throw new Error(`Error: ${response.status} - ${response.statusText}`)
+					}
+				})
 				.then(opdrachten => {
 					let traineeIds = []
 					opdrachten.forEach(opdracht => {
@@ -186,7 +194,11 @@
 					});
 					return traineeIds
 				})
+				.catch(error => {
+					return []
+				})
 		}
+
 		document.addEventListener('DOMContentLoaded', async function (event) {
 			makeCards()
 			makeVacatureCard()

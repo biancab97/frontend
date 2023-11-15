@@ -101,10 +101,8 @@
 					let html = ''
 
 					// const cutData = data.slice(0, 4)
-					console.log(data)
 					data.forEach((vacature) => {
 						if (vacature.omschrijving === null) return
-						console.log(vacature)
 						// Show only the first 100 characters of the omschrijving on the main page
 						const summary =
 							vacature.omschrijving.length > 100
