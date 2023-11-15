@@ -11,19 +11,71 @@ function loadNavBar() {
 		"fixed-top"
 	);
 
-	// Define the HTML code for the navigation bar
-	navbarContainer.innerHTML = `
+const showProfile = (item) => {
+  let rol = item.innerHTML
+  document.getElementById('dropdownMenu1').innerHTML = rol
+  
+  console.log("Dit is het profiel", rol)
+  if (rol == "Trainee") {
+    window.location.href = "homeTrainees.html"
+    console.log("go to: ", rol)
+  } else if (rol == "Talent Manager") {
+    window.location.href = "homeTalent.html"
+    console.log("go to: ", rol)
+  } else if (rol == "Opdrachtgever") {
+    window.location.href = "homeOpdracht.html"
+    console.log("go to: ", rol)
+  }
+  
+}
+
+const getProfile = () => {
+  const profile = document.getElementById('dropdownMenu1').innerHTML
+  console.log(profile)
+  localStorage.setItem('profile', profile)
+}
+
+const profile = localStorage.getItem('profile') || 'Opdrachtgever'
+console.log(profile)
+
+const loadNavBar = () => {
+  const navbarContainer = document.createElement('nav')
+
+  navbarContainer.classList.add(
+    'navbar',
+    'navbar-expand-lg',
+    'navbar-light',
+    'bg-primary',
+    'fixed-top'
+  )
+
+  // Define the HTML code for the navigation bar
+
+  let url = window.location.href
+  if (profile === 'Opdrachtgever') {
+    console.log('Opdrachtgever')
+    navbarContainer.innerHTML = `
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
-      <a class="navbar-brand" href="homeTrainees.html">
+      <a class="navbar-brand" href="homeOpdracht.html">
         <img
           src="../icons/logo.png"
           width="100"
           height="30"
-          class="d-inline-block align-top"
+          class="d-inline-block align-top mx-3"
           alt="Your Logo"
         />
       </a>
+      <div class="dropdown mx-3">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ${profile}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Opdrachtgever</button>
+          <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Talent Manager</button>
+          <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Trainee</button>
+        </div>
+      </div>
       <button
         class="navbar-toggler"
         type="button"
@@ -41,18 +93,13 @@ function loadNavBar() {
             <a class="nav-link text-white" href="account.html">Mijn Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="profiel.html">Profiel</a>
+            <a class="nav-link text-white" href="homeOpdracht.html">Vacatures</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="homeOpdracht.html">Opdrachtgever</a>
+            <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Matches</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="homeTalent.html">Talent Manager</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="homeTrainees.html"
-              >Trainee</a
-            >
+            <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Opdrachten</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
@@ -63,14 +110,145 @@ function loadNavBar() {
         </ul>
       </div>
     </nav>
-
+  
     <style>
       .navbar-nav .nav-item:hover {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
-    `;
 
-	// Append the navigation bar to the document
-	document.body.insertBefore(navbarContainer, document.body.firstChild);
+    `
+  } else if (profile === 'Trainee') {
+    console.log('Trainee')
+    navbarContainer.innerHTML = `
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+    <a class="navbar-brand" href="homeTrainees.html">
+      <img
+        src="../icons/logo.png"
+        width="100"
+        height="30"
+        class="d-inline-block align-top mx-3"
+        alt="Your Logo"
+      />
+    </a>
+    <div class="dropdown mx-3">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ${profile}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Opdrachtgever</button>
+        <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Talent Manager</button>
+        <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Trainee</button>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="account.html">Mijn Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="profiel.html">Profiel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="homeTrainees.html"
+            >Vacatures</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="TraineeMatches.html">Mijn Opdrachten</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="berichten.html">Berichten</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <style>
+    .navbar-nav .nav-item:hover {
+      background-color: #6d6d6d; /* Change the background color on hover */
+    }
+  </style>
+  `
+  } else {
+    console.log('Talent')
+    navbarContainer.innerHTML = `
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+    <a class="navbar-brand" href="homeTalent.html">
+      <img
+        src="../icons/logo.png"
+        width="100"
+        height="30"
+        class="d-inline-block align-top mx-3"
+        alt="Your Logo"
+      />
+    </a>
+    <div class="dropdown mx-3">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ${profile}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Opdrachtgever</button>
+        <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Talent Manager</button>
+        <button class="dropdown-item" type="button" onclick="showProfile(this); getProfile()">Trainee</button>
+      </div>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="account.html">Mijn Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="homeOpdracht.html">Vacatures</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="homeTalent.html">Trainees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="homeTrainees.html"
+            >Matches</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="berichten.html">Berichten</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <style>
+    .navbar-nav .nav-item:hover {
+      background-color: #6d6d6d; /* Change the background color on hover */
+    }
+  </style>
+  `
+  }
+
+  // Append the navigation bar to the document
+  document.body.insertBefore(navbarContainer, document.body.firstChild)
 }
