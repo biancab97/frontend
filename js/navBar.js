@@ -1,15 +1,15 @@
-const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
-// const backendPath = 'http://localhost:8080/'
+// const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
+const backendPath = "http://localhost:8080/";
 function loadNavBar() {
 	// Create a container element for the navigation bar
-	const navbarContainer = document.createElement('nav')
+	const navbarContainer = document.createElement("nav");
 	navbarContainer.classList.add(
-		'navbar',
-		'navbar-expand-lg',
-		'navbar-light',
-		'bg-primary',
-		'fixed-top',
-	)
+		"navbar",
+		"navbar-expand-lg",
+		"navbar-light",
+		"bg-primary",
+		"fixed-top"
+	);
 
 	// Define the HTML code for the navigation bar
 	navbarContainer.innerHTML = `
@@ -69,8 +69,8 @@ function loadNavBar() {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
-    `
+    `;
 
 	// Append the navigation bar to the document
-	document.body.insertBefore(navbarContainer, document.body.firstChild)
+	document.body.insertBefore(navbarContainer, document.body.firstChild);
 }

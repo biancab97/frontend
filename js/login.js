@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 
 		// Make a POST request to the backend
-		fetch("http://localhost:8080/auth/login", {
+		fetch(`${backendPath}auth/login`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
