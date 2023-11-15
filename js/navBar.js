@@ -1,5 +1,15 @@
-const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
-// const backendPath = 'http://localhost:8080/'
+// const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
+const backendPath = "http://localhost:8080/";
+function loadNavBar() {
+	// Create a container element for the navigation bar
+	const navbarContainer = document.createElement("nav");
+	navbarContainer.classList.add(
+		"navbar",
+		"navbar-expand-lg",
+		"navbar-light",
+		"bg-primary",
+		"fixed-top"
+	);
 
 const showProfile = (item) => {
   let rol = item.innerHTML
@@ -106,6 +116,7 @@ const loadNavBar = () => {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
+
     `
   } else if (profile === 'Trainee') {
     console.log('Trainee')
