@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					localStorage.setItem("name", data.name);
 					localStorage.setItem("role", data.role);
 					localStorage.setItem("id", data.id);
-
+					console.log("Opgeslagen in local storage")
 					// Redirect
 					if (data.role == "ROLE_TRAINEE") {
 						window.location.href = "../html/homeTrainees.html";
