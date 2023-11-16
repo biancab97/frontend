@@ -1,8 +1,35 @@
 // const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
 const backendPath = "http://localhost:8080/";
-function loadNavBar() {
-	// Create a container element for the navigation bar
+
+const showProfile = (item) => {
+	let rol = item.innerHTML;
+	document.getElementById("dropdownMenu1").innerHTML = rol;
+
+	console.log("Dit is het profiel", rol);
+	if (rol == "Trainee") {
+		window.location.href = "homeTrainees.html";
+		console.log("go to: ", rol);
+	} else if (rol == "Talent Manager") {
+		window.location.href = "homeTalent.html";
+		console.log("go to: ", rol);
+	} else if (rol == "Opdrachtgever") {
+		window.location.href = "homeOpdracht.html";
+		console.log("go to: ", rol);
+	}
+};
+
+const getProfile = () => {
+	const profile = document.getElementById("dropdownMenu1").innerHTML;
+	console.log(profile);
+	localStorage.setItem("profile", profile);
+};
+
+const profile = localStorage.getItem("profile") || "Opdrachtgever";
+console.log(profile);
+
+const loadNavBar = () => {
 	const navbarContainer = document.createElement("nav");
+
 	navbarContainer.classList.add(
 		"navbar",
 		"navbar-expand-lg",
@@ -11,50 +38,12 @@ function loadNavBar() {
 		"fixed-top"
 	);
 
-const showProfile = (item) => {
-  let rol = item.innerHTML
-  document.getElementById('dropdownMenu1').innerHTML = rol
-  
-  console.log("Dit is het profiel", rol)
-  if (rol == "Trainee") {
-    window.location.href = "homeTrainees.html"
-    console.log("go to: ", rol)
-  } else if (rol == "Talent Manager") {
-    window.location.href = "homeTalent.html"
-    console.log("go to: ", rol)
-  } else if (rol == "Opdrachtgever") {
-    window.location.href = "homeOpdracht.html"
-    console.log("go to: ", rol)
-  }
-  
-}
+	// Define the HTML code for the navigation bar
 
-const getProfile = () => {
-  const profile = document.getElementById('dropdownMenu1').innerHTML
-  console.log(profile)
-  localStorage.setItem('profile', profile)
-}
-
-const profile = localStorage.getItem('profile') || 'Opdrachtgever'
-console.log(profile)
-
-const loadNavBar = () => {
-  const navbarContainer = document.createElement('nav')
-
-  navbarContainer.classList.add(
-    'navbar',
-    'navbar-expand-lg',
-    'navbar-light',
-    'bg-primary',
-    'fixed-top'
-  )
-
-  // Define the HTML code for the navigation bar
-
-  let url = window.location.href
-  if (profile === 'Opdrachtgever') {
-    console.log('Opdrachtgever')
-    navbarContainer.innerHTML = `
+	let url = window.location.href;
+	if (profile === "Opdrachtgever") {
+		console.log("Opdrachtgever");
+		navbarContainer.innerHTML = `
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
       <a class="navbar-brand" href="homeOpdracht.html">
@@ -117,10 +106,10 @@ const loadNavBar = () => {
       }
     </style>
 
-    `
-  } else if (profile === 'Trainee') {
-    console.log('Trainee')
-    navbarContainer.innerHTML = `
+    `;
+	} else if (profile === "Trainee") {
+		console.log("Trainee");
+		navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeTrainees.html">
@@ -183,10 +172,10 @@ const loadNavBar = () => {
       background-color: #6d6d6d; /* Change the background color on hover */
     }
   </style>
-  `
-  } else {
-    console.log('Talent')
-    navbarContainer.innerHTML = `
+  `;
+	} else {
+		console.log("Talent");
+		navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeTalent.html">
@@ -246,9 +235,9 @@ const loadNavBar = () => {
       background-color: #6d6d6d; /* Change the background color on hover */
     }
   </style>
-  `
-  }
+  `;
+	}
 
-  // Append the navigation bar to the document
-  document.body.insertBefore(navbarContainer, document.body.firstChild)
-}
+	// Append the navigation bar to the document
+	document.body.insertBefore(navbarContainer, document.body.firstChild);
+};
