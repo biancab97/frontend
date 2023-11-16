@@ -85,13 +85,7 @@
 		}
 
 		document.addEventListener('DOMContentLoaded', async function (event) {
-			let userID = localStorage.getItem('ID');
-			if (userID == null) {
-				opdrachtgeverId = 1 // traineeId is afhankelijk van wie er ingelogd is
-			} else {
-				opdrachtgeverId = userID
-			}
-			opdrachtgeverId = 1 // overschrijven als tijdelijke oplossing
+			let opdrachtgeverId = localStorage.getItem('id');
 			loadMatches(opdrachtgeverId)
 			opdrachtgever = await getOpdrachtgeverById(opdrachtgeverId)
 			document.getElementById('matchModalLabel').innerHTML = `Opdrachten van ${opdrachtgever.naam} met ID: ${opdrachtgeverId}`
