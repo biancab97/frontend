@@ -105,7 +105,12 @@
 							</div>
 
 							<!-- Submit button -->
-							<button type="submit" class="btn btn-primary" id="submitBtn">
+							<button
+								type="button"
+								class="btn btn-primary"
+								id="submitBtn"
+								onclick="putTrainee()"
+							>
 								Submit
 							</button>
 						</form>
@@ -123,7 +128,7 @@
 						<form>
 							<!-- Uitstroomrichting -->
 							<div class="mb-3">
-								<label for="telefoonnummerInput" class="form-label"
+								<label for="uitstroomrichtingInput" class="form-label"
 									>Uitstroomrichting</label
 								>
 								<div class="dropdown">
@@ -134,10 +139,10 @@
 										onchange="selectUitstroomrichting(event)"
 									>
 										<option selected>Selecteer</option>
-										<option value="DevOps">DevOps</option>
-										<option value="LowCode">Low Code</option>
-										<option value="DataAnalist">Data Analist</option>
-										<option value="BigData">Big Data</option>
+										<option value="Dev Ops">Dev Ops</option>
+										<option value="Low Code">Low Code</option>
+										<option value="Data Analist">Data Analist</option>
+										<option value="Big Data">Big Data</option>
 										<option value="Java">Java</option>
 									</select>
 								</div>
@@ -145,44 +150,32 @@
 							<!-- Profielfoto -->
 							<div class="mb-3">
 								<label for="Profielfoto" class="form-label">Profielfoto</label>
+								<br />
 								<img
-									id="Profielfoto"
+									id="fotoInput"
 									alt="Profielfoto"
 									width="100"
 									height="100"
 								/>
 							</div>
-							<!-- Profielfoto -->
-							<!-- <div class="mb-3">
-								<label for="profielfotoInput" class="form-label"
-									>Profielfoto</label
-								>
-								<input
-									type="text"
-									class="form-control"
-									id="profielfotoInput"
-									aria-describedby="profielfotoHelp"
-								/>
-								<div id="profielfotoHelp" class="form-text">
-									Vul hier jouw motivatie in.
-								</div>
-							</div> -->
 							<!-- CV -->
 							<div class="mb-3">
-								<label for="CV" class="form-label">CV</label>
-								<p id="CVText" class="text-secondary">
-									<a href="cv.pdf">Download</a>
-								</p>
+								<label for="cvInput" class="form-label">CV</label>
+								<textarea
+									class="form-control"
+									id="cvInput"
+									aria-describedby="cvHelp"
+								></textarea>
+								<div id="cvHelp" class="form-text">Vul hier jouw CV in.</div>
 							</div>
 							<!-- Motivatie -->
 							<div class="mb-3">
 								<label for="motivatieInput" class="form-label">Motivatie</label>
-								<input
-									type="text"
+								<textarea
 									class="form-control"
 									id="motivatieInput"
 									aria-describedby="motivatieHelp"
-								/>
+								></textarea>
 								<div id="motivatieHelp" class="form-text">
 									Vul hier jouw motivatie in.
 								</div>
@@ -190,16 +183,21 @@
 							<!-- Bio -->
 							<div class="mb-3">
 								<label for="bioInput" class="form-label">Bio</label>
-								<input
-									type="text"
+								<textarea
 									class="form-control"
 									id="bioInput"
 									aria-describedby="bioHelp"
-								/>
+								>
+								</textarea>
 								<div id="bioHelp" class="form-text">Vul hier jouw bio in.</div>
 							</div>
 							<!-- Submit button -->
-							<button type="submit" class="btn btn-primary" id="submitBtn2">
+							<button
+								type="button"
+								class="btn btn-primary"
+								id="submitBtn2"
+								onclick="putTrainee()"
+							>
 								Submit
 							</button>
 						</form>
