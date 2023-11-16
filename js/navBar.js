@@ -58,7 +58,7 @@ const loadNavBar = () => {
             <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Opdrachten</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
+            <a class="nav-link text-white" href="https://dataproject.azurewebsites.net/" target="_blank">Statistieken</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="berichten.html">Berichten</a>
