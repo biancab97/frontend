@@ -35,7 +35,6 @@ async function getVacatureByIdToEdit(id) {
 async function postVacature(vacature) {
 	// let opdrachtgeverId = localStorage.getItem("id")
 	let opdrachtgeverId = localStorage.getItem('id')
-	console.log(opdrachtgeverId)
 	try {
 		await fetch(`${backendPath}api/vacature/${opdrachtgeverId}`, {
 			method: 'POST',
