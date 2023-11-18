@@ -1,8 +1,6 @@
 async function getVacatureById1(id) {
 	try {
-		let response = await fetch(
-			`${backendPath}api/vacature/${id}`
-		)
+		let response = await fetch(`${backendPath}api/vacature/${id}`)
 		let vacature = await response.json()
 		displayVacatureInfo1(vacature)
 	} catch (error) {
@@ -36,7 +34,8 @@ async function getVacatureByIdToEdit(id) {
 
 async function postVacature(vacature) {
 	// let opdrachtgeverId = localStorage.getItem("id")
-	let opdrachtgeverId = 2;
+	let opdrachtgeverId = localStorage.getItem('id')
+	console.log(opdrachtgeverId)
 	try {
 		await fetch(`${backendPath}api/vacature/${opdrachtgeverId}`, {
 			method: 'POST',
@@ -132,7 +131,6 @@ function displayVacatureInfo1(vacature) {
 				</div>
 			</div>
 		`
-
 
 	// Add Bootstrap classes for aesthetics
 	vacatureInfoDiv.querySelector('.card').classList.add('bg-light', 'text-dark')
