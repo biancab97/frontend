@@ -2,12 +2,12 @@ let traineeId = localStorage.getItem("id");
 
 document.addEventListener("DOMContentLoaded", async function () {
 	try {
-		const trainee = await getTraineeById(traineeId);
-		populateFields(trainee);
+		const trainee = await getTraineeById(traineeId)
+		populateFields(trainee)
 	} catch (error) {
-		console.error("Error fetching trainee data:", error);
+		console.error('Error fetching trainee data:', error)
 	}
-});
+})
 
 function populateFields(trainee) {
 	// Display trainee info
