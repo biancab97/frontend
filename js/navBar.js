@@ -1,25 +1,26 @@
-// const backendPath = "https://yc2310-match-backend.azurewebsites.net/";
-const backendPath = "http://localhost:8080/";
 
-const profile = localStorage.getItem("role");
+const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
+// const backendPath = 'http://localhost:8080/'
+
+const profile = localStorage.getItem('role')
 
 const loadNavBar = () => {
-	const navbarContainer = document.createElement("nav");
+	const navbarContainer = document.createElement('nav')
 
 	navbarContainer.classList.add(
-		"navbar",
-		"navbar-expand-lg",
-		"navbar-light",
-		"bg-primary",
-		"fixed-top"
-	);
+		'navbar',
+		'navbar-expand-lg',
+		'navbar-light',
+		'bg-primary',
+		'fixed-top'
+	)
 
 	// Define the HTML code for the navigation bar
 
-	let url = window.location.href;
-	console.log("profiel: ", profile);
-	if (profile === "ROLE_OPDRACHTGEVER") {
-		console.log("Opdrachtgever");
+	let url = window.location.href
+	console.log('profiel: ', profile)
+	if (profile === 'ROLE_OPDRACHTGEVER') {
+		console.log('Opdrachtgever')
 		navbarContainer.innerHTML = `
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
@@ -55,10 +56,7 @@ const loadNavBar = () => {
             <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Matches</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Opdrachten</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="https://dataproject.azurewebsites.net/" target="_blank">Statistieken</a>
+            <a class="nav-link text-white" href="https://dataproject.azurewebsites.net/leeftijd" target="_blank">Statistieken</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="berichten.html">Berichten</a>
@@ -73,9 +71,9 @@ const loadNavBar = () => {
       }
     </style>
 
-    `;
-	} else if (profile === "ROLE_TRAINEE") {
-		console.log("Trainee");
+    `
+	} else if (profile === 'ROLE_TRAINEE') {
+		console.log('Trainee')
 		navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
@@ -129,9 +127,9 @@ const loadNavBar = () => {
       background-color: #6d6d6d; /* Change the background color on hover */
     }
   </style>
-  `;
-	} else if (profile === "ROLE_TALENTMANAGER") {
-		console.log("Talent");
+  `
+	} else if (profile === 'ROLE_TALENTMANAGER') {
+		console.log('Talent')
 		navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
@@ -182,9 +180,9 @@ const loadNavBar = () => {
       background-color: #6d6d6d; /* Change the background color on hover */
     }
   </style>
-  `;
+  `
 	}
 
 	// Append the navigation bar to the document
-	document.body.insertBefore(navbarContainer, document.body.firstChild);
-};
+	document.body.insertBefore(navbarContainer, document.body.firstChild)
+}

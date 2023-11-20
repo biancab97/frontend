@@ -1,13 +1,13 @@
-let traineeId = localStorage.getItem("id");
+let traineeId = localStorage.getItem('id')
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener('DOMContentLoaded', async function () {
 	try {
-		const trainee = await getTraineeById(traineeId);
-		populateFields(trainee);
+		const trainee = await getTraineeById(traineeId)
+		populateFields(trainee)
 	} catch (error) {
-		console.error("Error fetching trainee data:", error);
+		console.error('Error fetching trainee data:', error)
 	}
-});
+})
 
 function populateFields(trainee) {
 	// Display trainee info
@@ -37,8 +37,8 @@ function putTrainee() {
 
 	// Update the trainee
 	try {
-		updateTrainee(traineeId, updatedTrainee);
+		updateTrainee(traineeId, updatedTrainee)
 	} catch (error) {
-		console.error(`Error updating`, error);
+		console.error(`Error updating`, error)
 	}
 }
