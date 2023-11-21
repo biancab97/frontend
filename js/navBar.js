@@ -155,7 +155,7 @@ const loadNavBar = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="accountOpdrachtgever.html">Mijn Account</a>
+          <a class="nav-link text-white" href="accountTalent.html">Mijn Account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="homeTrainees.html">Vacatures</a>
