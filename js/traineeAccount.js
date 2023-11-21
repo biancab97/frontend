@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 function populateFields(trainee) {
 	document.getElementById("nameInput").value = trainee.naam;
 	document.getElementById("wachtwoordInput").value = trainee.wachtwoord;
-	// document.getElementById("nameInput").value = trainee.naam;
-	// document.getElementById("nameInput").value = trainee.naam;
-	// document.getElementById("nameInput").value = trainee.naam;
-	// document.getElementById("nameInput").value = trainee.naam;
-	// document.getElementById("nameInput").value = trainee.naam;
-	// document.getElementById("nameInput").value = trainee.naam;
-	// document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
+	document.getElementById("nameInput").value = trainee.naam;
 
 	// populateField("Name", trainee.naam);
 	// populateField("Email", trainee.email);
