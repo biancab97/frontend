@@ -1,4 +1,3 @@
-
 const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
 // const backendPath = 'http://localhost:8080/'
 
@@ -159,7 +158,7 @@ const loadNavBar = () => {
           <a class="nav-link text-white" href="account.html">Mijn Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="homeOpdracht.html">Vacatures</a>
+          <a class="nav-link text-white" href="homeTrainees.html">Vacatures</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="homeTalent.html">Trainees</a>
