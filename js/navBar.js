@@ -1,10 +1,10 @@
-//const backendPath = "http://localhost:8080/";
-// const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
-const backendPath = 'https://match-backend.azurewebsites.net/'
+const backendPath = "https://match-backend.azurewebsites.net/";
+// const backendPath = "http://localhost:8080/";
 
-const profile = localStorage.getItem('role')
+const profile = localStorage.getItem("role");
 
 const loadNavBar = () => {
+<<<<<<< HEAD
 	const navbarContainer = document.createElement('nav')
 
 	navbarContainer.classList.add(
@@ -14,14 +14,34 @@ const loadNavBar = () => {
 		'bg-primary',
 		'fixed-top'
 	)
+=======
+	const navbarContainer = document.createElement("nav");
+
+	navbarContainer.classList.add(
+		"navbar",
+		"navbar-expand-lg",
+		"navbar-light",
+		"bg-primary",
+		"fixed-top"
+	);
+>>>>>>> main
 
 	// Define the HTML code for the navigation bar
 
+<<<<<<< HEAD
 	let url = window.location.href
 	console.log('profiel: ', profile)
 	if (profile === 'ROLE_OPDRACHTGEVER') {
 		console.log('Opdrachtgever')
 		navbarContainer.innerHTML = `
+=======
+  let url = window.location.href
+  console.log("profiel: ", profile)
+  if (profile === 'ROLE_OPDRACHTGEVER') {
+    console.log('Opdrachtgever')
+    navbarContainer.innerHTML = `
+
+>>>>>>> main
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeOpdracht.html">
@@ -70,11 +90,17 @@ const loadNavBar = () => {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
-
     `
+<<<<<<< HEAD
 	} else if (profile === 'ROLE_TRAINEE') {
 		console.log('Trainee')
 		navbarContainer.innerHTML = `
+=======
+  } else if (profile === 'ROLE_TRAINEE') {
+    console.log('Trainee')
+    navbarContainer.innerHTML = `
+
+>>>>>>> main
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeTrainees.html">
@@ -183,6 +209,12 @@ const loadNavBar = () => {
   `
 	}
 
+<<<<<<< HEAD
 	// Append the navigation bar to the document
 	document.body.insertBefore(navbarContainer, document.body.firstChild)
 }
+=======
+  // Append the navigation bar to the document
+  document.body.insertBefore(navbarContainer, document.body.firstChild)
+}
+>>>>>>> main
