@@ -1,19 +1,18 @@
-//const backendPath = "http://localhost:8080/";
-// const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
-const backendPath = 'https://match-backend.azurewebsites.net/'
+const backendPath = "https://match-backend.azurewebsites.net/";
+// const backendPath = "http://localhost:8080/";
 
-const profile = localStorage.getItem('role')
+const profile = localStorage.getItem("role");
 
 const loadNavBar = () => {
-  const navbarContainer = document.createElement('nav')
+	const navbarContainer = document.createElement("nav");
 
-  navbarContainer.classList.add(
-    'navbar',
-    'navbar-expand-lg',
-    'navbar-light',
-    'bg-primary',
-    'fixed-top'
-  )
+	navbarContainer.classList.add(
+		"navbar",
+		"navbar-expand-lg",
+		"navbar-light",
+		"bg-primary",
+		"fixed-top"
+	);
 
   // Define the HTML code for the navigation bar
 
@@ -22,6 +21,7 @@ const loadNavBar = () => {
   if (profile === 'ROLE_OPDRACHTGEVER') {
     console.log('Opdrachtgever')
     navbarContainer.innerHTML = `
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
       <a class="navbar-brand" href="homeOpdracht.html">
@@ -73,11 +73,11 @@ const loadNavBar = () => {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
-
     `
   } else if (profile === 'ROLE_TRAINEE') {
     console.log('Trainee')
     navbarContainer.innerHTML = `
+
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeTrainees.html">
