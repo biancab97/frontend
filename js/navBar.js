@@ -1,4 +1,4 @@
-const backendPath = "http://localhost:8080/";
+//const backendPath = "http://localhost:8080/";
 const backendPath = 'https://match-backend.azurewebsites.net/'
 
 const profile = localStorage.getItem('role')
