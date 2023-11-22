@@ -1,5 +1,5 @@
-// const backendPath = 'https://yc2310-match-backend.azurewebsites.net/'
 const backendPath = "http://localhost:8080/";
+const backendPath = 'https://match-backend.azurewebsites.net/'
 
 const profile = localStorage.getItem('role')
 
@@ -46,7 +46,7 @@ const loadNavBar = () => {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="account.html">Mijn Account</a>
+            <a class="nav-link text-white" href="accountOpdrachtgever.html">Mijn Account</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="homeOpdracht.html">Vacatures</a>
@@ -158,7 +158,7 @@ const loadNavBar = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="account.html">Mijn Account</a>
+          <a class="nav-link text-white" href="accountTalent.html">Mijn Account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="Vacatures.html">Vacatures</a>

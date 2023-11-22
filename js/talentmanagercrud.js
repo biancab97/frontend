@@ -1,11 +1,10 @@
-async function getTalentmanagerById() {
-	var talentmanagerId = document.getElementById('talentmanagerId').value
+async function getTalentmanagerById(talentmanagerId) {
 	try {
 		let response = await fetch(
 			`${backendPath}api/talentmanager/${talentmanagerId}`
 		)
 		let talentmanager = await response.json()
-		displayTalentmanagerInfo(talentmanager)
+		return talentmanager
 	} catch (error) {
 		displayTalentmanagerNotFound()
 		console.error('Error fetching data:', error)
@@ -30,16 +29,13 @@ async function getOpdrachtVanTalentmanagerById(talentmanagerId, opdrachtId) {
 
 async function postTalentmanager(talentmanager) {
 	try {
-		await fetch(
-			`${backendPath}api/talentmanager`,
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(talentmanager),
-			}
-		)
+		await fetch(`${backendPath}api/talentmanager`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(talentmanager),
+		})
 	} catch (error) {
 		console.error('Error fetching data:', error)
 	}
@@ -84,6 +80,30 @@ function displayOpdrachtVanTalentmanagerInfo(opdracht) {
 function displayTalentmanagerNotFound() {
 	var talentmanagerInfoDiv = document.getElementById('talentmanagerInfo')
 	talentmanagerInfoDiv.innerHTML = '<p>Talentmanager not found.</p>'
+}
+
+async function updateTalentmanager(talentId, updatedData) {
+	try {
+		const response = await fetch(
+			`${backendPath}api/talentmanager/${talentId}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(updatedData),
+			}
+		)
+
+		if (response.ok) {
+			const updatedTrainee = await response.json()
+		} else {
+			// Handle errors or display a message if needed
+			console.error('Error updating trainee data:', response.status)
+		}
+	} catch (error) {
+		console.error('Error updating trainee data:', error)
+	}
 }
 
 function dummyTalentmanager() {
