@@ -14,13 +14,14 @@ const loadNavBar = () => {
 		"fixed-top"
 	);
 
-	// Define the HTML code for the navigation bar
+  // Define the HTML code for the navigation bar
 
-	let url = window.location.href;
-	console.log("profiel: ", profile);
-	if (profile === "ROLE_OPDRACHTGEVER") {
-		console.log("Opdrachtgever");
-		navbarContainer.innerHTML = `
+  let url = window.location.href
+  console.log("profiel: ", profile)
+  if (profile === 'ROLE_OPDRACHTGEVER') {
+    console.log('Opdrachtgever')
+    navbarContainer.innerHTML = `
+
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
       <a class="navbar-brand" href="homeOpdracht.html">
@@ -46,7 +47,7 @@ const loadNavBar = () => {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="account.html">Mijn Account</a>
+            <a class="nav-link text-white" href="accountOpdrachtgever.html">Mijn Account</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="homeOpdracht.html">Vacatures</a>
@@ -55,7 +56,10 @@ const loadNavBar = () => {
             <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Matches</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="https://dataproject.azurewebsites.net/leeftijd" target="_blank">Statistieken</a>
+            <a class="nav-link text-white" href="OpdrachtgeverMatches.html">Opdrachten</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="loonstrook.html">Loonstroken</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="berichten.html">Berichten</a>
@@ -69,11 +73,11 @@ const loadNavBar = () => {
         background-color: #6d6d6d; /* Change the background color on hover */
       }
     </style>
+    `
+  } else if (profile === 'ROLE_TRAINEE') {
+    console.log('Trainee')
+    navbarContainer.innerHTML = `
 
-    `;
-	} else if (profile === "ROLE_TRAINEE") {
-		console.log("Trainee");
-		navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeTrainees.html">
@@ -126,10 +130,10 @@ const loadNavBar = () => {
       background-color: #6d6d6d; /* Change the background color on hover */
     }
   </style>
-  `;
-	} else if (profile === "ROLE_TALENTMANAGER") {
-		console.log("Talent");
-		navbarContainer.innerHTML = `
+  `
+  } else if (profile === "ROLE_TALENTMANAGER") {
+    console.log('Talent')
+    navbarContainer.innerHTML = `
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <a class="navbar-brand" href="homeTalent.html">
@@ -155,16 +159,16 @@ const loadNavBar = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="account.html">Mijn Account</a>
+          <a class="nav-link text-white" href="accountTalent.html">Mijn Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="homeOpdracht.html">Vacatures</a>
+          <a class="nav-link text-white" href="Vacatures.html">Vacatures</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="homeTalent.html">Trainees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="homeTrainees.html"
+          <a class="nav-link text-white" href="talentmanagerMatches.html"
             >Matches</a>
         </li>
         <li class="nav-item">
@@ -179,9 +183,9 @@ const loadNavBar = () => {
       background-color: #6d6d6d; /* Change the background color on hover */
     }
   </style>
-  `;
-	}
+  `
+  }
 
-	// Append the navigation bar to the document
-	document.body.insertBefore(navbarContainer, document.body.firstChild);
-};
+  // Append the navigation bar to the document
+  document.body.insertBefore(navbarContainer, document.body.firstChild)
+}
