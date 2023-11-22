@@ -75,7 +75,7 @@
 				getTraineeById(traineeId).then((data) => {
 					let html = "";
 
-					if (!data.loonstroken) {
+					if (data.loonstroken.length == 0) {
 						html += `
 						<h2 class="text-center mt-5">Geen loonstroken om te vertonen.</h2>
                         `;
