@@ -62,3 +62,17 @@ function dummyOpdracht() {
 	}
 	return opdracht
 }
+
+async function updateOpdracht(opdracht, opdrachtId) {
+	try {
+		await fetch(`${backendPath}api/opdracht/${opdrachtId}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(opdracht),
+		})
+	} catch (error) {
+		console.error('Error fetching data:', error)
+	}
+}

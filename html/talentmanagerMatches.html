@@ -77,7 +77,7 @@
 							html += `
                         <div class="col-12 col-md-4 col-lg-3 mt-4">
                             <div class="card">
-                                <img src="../img/${match.foto}" class="card-img-top" alt="...">
+                                <img src="${match.foto}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>Vacature: </strong>${match.titel}</h5>
 									<p class="card-text"><strong>Werkgever: </strong>${match.opdrachtgeverNaam}</p>
@@ -89,6 +89,19 @@
                                             Informatie
                                         </button>
                                     </div>
+									<div class="dropdown">
+										<select
+											class="form-select"
+											id="uitstroomDropdown"
+											aria-label="Default select example"
+											onchange=""
+										>
+											<option value="none" selected disabled hidden>Selecteer</option>
+											<option value="In-gesprek">In-gesprek</option>
+											<option value="Geplaatst">Geplaatst</option>
+											<option value="Afgerond">Afgeronde opdracht</option>
+										</select>
+									</div>
                                 </div>
                             </div>
                         </div>
