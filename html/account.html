@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Mijn Account</title>
+		<link rel="icon" type="image/x-icon" href="../icons/favicon.ico" />
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
@@ -24,7 +25,7 @@
 
 	<body class="bg-light">
 		<script>
-			loadNavBar();
+			loadNavBar()
 		</script>
 		<!-- Persoonsgegevens Section -->
 		<div class="container my-5" style="margin-top: 100px !important">
@@ -106,6 +107,32 @@
 		</div>
 
 		<!-- Profiel Section -->
+		<div class="container my-5">
+			<div class="section">
+				<h2 class="fw-bold mb-4">Talentmanager</h2>
+				<div class="card">
+					<div class="card-body" id="profile-talentmanager-none">
+						<span>Jij hebt nog geen toegewezen talentmanager</span>
+					</div>
+					<div class="card-body d-none" id="profile-talentmanager-found">
+						<div class="container">
+							<div class="row">
+								<div class="col-12">
+									Naam: <span id="profile-talentmanager-name"></span><br>
+									Email: <span id="profile-talentmanager-email"></span><br>
+									Telefoon: <span id="profile-talentmanager-telephone"></span><br>
+								</div>
+								<div class="col-12">
+									<img src="" class="img-fluid w-50" id="profile-talentmanager-photo">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Profiel Section -->
 		<div class="container">
 			<div class="section">
 				<h2 class="fw-bold mb-4">Profiel</h2>
@@ -124,10 +151,10 @@
 										aria-label="Default select example"
 										onchange="selectUitstroomrichting(event)"
 									>
-										<option selected>Selecteer</option>
+										<option selected disabled>Selecteer</option>
 										<option value="Dev Ops">Dev Ops</option>
 										<option value="Low Code">Low Code</option>
-										<option value="Data Analist">Data Analist</option>
+										<option value="Business Analist">Business Analist</option>
 										<option value="Big Data">Big Data</option>
 										<option value="Java">Java</option>
 									</select>
@@ -194,7 +221,7 @@
 
 		<!-- Footer -->
 		<script>
-			loadFooter();
+			loadFooter()
 		</script>
 	</body>
 </html>
