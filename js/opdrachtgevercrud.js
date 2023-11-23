@@ -11,6 +11,7 @@ async function getOpdrachtgeverById(opdrachtgeverId) {
 }
 
 async function getOpdrachtVanOpdrachtgeverById(opdrachtgeverId, opdrachtId) {
+	console.log(opdrachtgeverId)
 	try {
 		let response = await fetch(
 			`${backendPath}api/opdrachtgever/${opdrachtgeverId}/opdrachten`
@@ -28,16 +29,13 @@ async function getOpdrachtVanOpdrachtgeverById(opdrachtgeverId, opdrachtId) {
 
 async function postOpdrachtgever(opdrachtgever) {
 	try {
-		await fetch(
-			`${backendPath}api/opdrachtgever`,
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(opdrachtgever),
-			}
-		)
+		await fetch(`${backendPath}api/opdrachtgever`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(opdrachtgever),
+		})
 	} catch (error) {
 		console.error('Error fetching data:', error)
 	}
@@ -57,28 +55,53 @@ function displayOpdrachtgeverInfo(opdrachtgever) {
 }
 
 function displayOpdrachtVanOpdrachtgeverInfo(opdracht) {
-	let opdrachtVanOpdrachtgeverInfoDiv = document.getElementById('opdrachtVanOpdrachtgeverInfo')
+	let opdrachtVanOpdrachtgeverInfoDiv = document.getElementById(
+		'opdrachtVanOpdrachtgeverInfo'
+	)
 	opdrachtVanOpdrachtgeverInfoDiv.innerHTML = `
     <div class="row">
         <div class="col-md-6">
             <h3 class="text-primary">${opdracht.naam}</h3>
-			<p class="card-text"><strong>Titel:</strong> ${opdracht.titel}</p>
-			<p class="card-text"><strong>Uren:</strong> ${opdracht.uren}</p>
-            <p class="card-text"><strong>Duur:</strong> ${opdracht.duur}</p>
+			<p class="card-text"><strong>Titel Vacature:</strong> ${opdracht.titel}</p>
+			<p class="card-text"><strong>Richting:</strong> ${opdracht.richting}</p>
+            <p class="card-text"><strong>Status:</strong> ${opdracht.status}</p>
             <p class="card-text"><strong>E-mail:</strong> ${opdracht.email}</p>
             <p class="card-text"><strong>Telefoon:</strong> ${opdracht.telefoon}</p>
         </div>
         <div class="col-md-6">
-            <img src="../img/${opdracht.foto}" class="img-fluid">
+            <img src="${opdracht.foto}" class="img-fluid">
         </div>
     </div>
         `
 }
 
-
 function displayOpdrachtgeverNotFound() {
 	var opdrachtgeverInfoDiv = document.getElementById('opdrachtgeverInfo')
 	opdrachtgeverInfoDiv.innerHTML = '<p>Opdrachtgever not found.</p>'
+}
+
+async function updateOpdrachtgever(opdrachtgeverId, updatedData) {
+	try {
+		const response = await fetch(
+			`${backendPath}api/opdrachtgever/${opdrachtgeverId}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(updatedData),
+			}
+		)
+
+		if (response.ok) {
+			const updatedTrainee = await response.json()
+		} else {
+			// Handle errors or display a message if needed
+			console.error('Error updating trainee data:', response.status)
+		}
+	} catch (error) {
+		console.error('Error updating trainee data:', error)
+	}
 }
 
 function dummyOpdrachtgever() {
